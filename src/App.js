@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Data from "./data/Data";
+import { Switch, Route, useLocation } from "react-router-dom";
+import Nav from "./components/nav";
+import { routes } from "./routes";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const location = useLocation();
+    return (
+        <>
+            <Data>
+                <Nav />
+                <Switch location={location} key={location.pathname}>
+                    {routes.map(({ path, Component }) => (
+                        <Route
+                            key={path}
+                            exact
+                            path={path}
+                            component={Component}
+                        />
+                    ))}
+                </Switch>
+            </Data>
+        </>
+    );
 }
 
 export default App;
