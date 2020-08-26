@@ -15,23 +15,23 @@ function LandingPage() {
     return (
         <Container>
             <ImgOne>
-                <Link to="/details">
-                    <img src={Mapping[0]} />
+                <Link to="/products">
+                    <img src={Mapping[0]} alt={Mapping[0]} />
                 </Link>
             </ImgOne>
             <ImgTwo>
-                <Link to="/details">
-                    <img src={Mapping[2]} />
+                <Link to="/products">
+                    <img src={Mapping[2]} alt={Mapping[2]} />
                 </Link>
             </ImgTwo>
             <ImgThree>
-                <Link to="/details">
-                    <img src={Mapping[3]} />
+                <Link to="/products">
+                    <img src={Mapping[3]} alt={Mapping[3]} />
                 </Link>
             </ImgThree>
             <ImgFour>
-                <Link to="/details">
-                    <img src={Mapping[11]} />
+                <Link to="/products">
+                    <img src={Mapping[11]} alt={Mapping[11]} />
                 </Link>
             </ImgFour>
         </Container>

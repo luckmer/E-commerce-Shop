@@ -1,11 +1,7 @@
 import React from "react";
 
 function Catalog() {
-    return (
-        <div>
-            <p>catalog</p>
-        </div>
-    );
+    return <div></div>;
 }
 
 export default Catalog;
