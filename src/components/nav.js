@@ -8,7 +8,7 @@ function Nav() {
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            window.pageYOffset > 200 ? setScroll(true) : setScroll(false);
+            window.pageYOffset > 70 ? setScroll(true) : setScroll(false);
         });
     }, []);
 
