@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container, IMG, ContextView, Div } from "../styles/DetailsStyle";
 import { DataContext } from "../data/Data";
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 function Details({ match }) {
     const [state, setState] = useState({ content: [] });
     const contextType = useContext(DataContext);
@@ -29,7 +29,11 @@ function Details({ match }) {
                     </IMG>
                     <ContextView>
                         <p>{context}</p>
+
                         <Div>
+                            <Link to="/products">
+                                <button>Back</button>
+                            </Link>
                             <button onClick={() => handleClick(_id)}>
                                 Buy
                             </button>

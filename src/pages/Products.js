@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Products() {
     const { DataControl } = useContext(DataContext);
-    const Sliced = DataControl.fetchData.slice(0, 4);
+    const Sliced = DataControl.fetchData.slice(0, 3);
     return (
         <Container>
             <ImgCarousel />

@@ -30,6 +30,10 @@ export const Div = styled.div`
     justify-content: center;
     align-items: flex-end;
     button {
+        &:nth-child(1) {
+            padding: 1vh 2vw 1vh 2vw;
+        }
+        margin: 20px;
         border-radius: 5px;
         background-color: #212529;
         color: #f8f9fa;
