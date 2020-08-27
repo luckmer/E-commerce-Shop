@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavBar, Header, Menu, DivPage } from "../styles/NavBar";
 import { Link } from "react-router-dom";
-
+import { DataContext } from "../data/Data";
 function Nav() {
     const [state, setState] = useState(false);
     const [scroll, setScroll] = useState(false);
-
+    const { DataControl } = useContext(DataContext);
+    const Length = DataControl.table.length;
     useEffect(() => {
         window.addEventListener("scroll", () => {
             window.pageYOffset > 70 ? setScroll(true) : setScroll(false);
@@ -19,7 +20,7 @@ function Nav() {
                 <div />
                 <br />
             </Menu>
-            <Header state={state}>
+            <Header scroll={scroll} state={state}>
                 <DivPage>
                     <ul>
                         <Link to="/catalog">
@@ -40,7 +41,7 @@ function Nav() {
                 <DivPage>
                     <ul>
                         <Link to="/cart">
-                            <li>Cart</li>
+                            <li>Cart {Length} </li>
                         </Link>
                     </ul>
                 </DivPage>

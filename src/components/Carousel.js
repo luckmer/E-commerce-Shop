@@ -6,8 +6,8 @@ import { Section } from "../styles/products";
 
 function ImgCarousel() {
     const [index, setIndex] = useState(0);
-    const { fetchData } = useContext(DataContext);
-    const Img = fetchData.map(({ src }) => src);
+    const { DataControl } = useContext(DataContext);
+    const Img = DataControl.fetchData.map(({ src }) => src);
 
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
@@ -16,13 +16,13 @@ function ImgCarousel() {
         <Section>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 <Carousel.Item>
-                    <img className="d-block w-100 " src={Img[8]} alt={Img[8]} />
+                    <img className="d-block w-100 " src={Img[7]} alt={Img[7]} />
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={Img[12]}
-                        alt={Img[12]}
+                        src={Img[11]}
+                        alt={Img[11]}
                     />
                 </Carousel.Item>
             </Carousel>
