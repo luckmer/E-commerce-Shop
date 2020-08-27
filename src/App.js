@@ -7,25 +7,15 @@ import ScrollUp from "./components/ScrollUp";
 function App() {
     const location = useLocation();
     return (
-        <>
-            <Data>
-                <ScrollUp />
-                <Nav />
-                <Switch location={location} key={location.pathname}>
-                    {routes.map(({ path, Component }) => (
-                        <Route
-                            key={path}
-                            exact
-                            path={path}
-                            component={Component}
-                        />
-                    ))}
-                </Switch>
-            </Data>
-        </>
+        <Data>
+            <ScrollUp />
+            <Nav />
+            <Switch location={location} key={location.pathname}>
+                {routes.map(({ path, Component }) => (
+                    <Route key={path} exact path={path} component={Component} />
+                ))}
+            </Switch>
+        </Data>
     );
 }
-
 export default App;
-
-//todo : make details panel use custom hooks , end panel,mobile app, other later
