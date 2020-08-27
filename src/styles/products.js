@@ -25,22 +25,21 @@ export const Section = styled.section`
         height: 100vh !important;
     }
 `;
-export const Contact = styled.section`
-    grid-area: contact;
-    color: black;
-    div {
-        width: 100%;
-        height: 30vh;
-        background-color: black;
-    }
-`;
 export const Shoes = styled.section`
     grid-area: shoes;
     padding: 10vh 1vw 2vh 1vw;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     flex: 1.36;
+    div {
+        padding: 20px;
+        width: 20vw;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+    }
     img {
         border-radius: 2px;
         width: 20vw;

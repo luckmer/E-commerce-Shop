@@ -14,14 +14,17 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     font-size: 24px;
+
     ul {
         padding: 0 2vw 0 2vw;
         margin: 1vh 0 1vh 0;
         list-style: none;
     }
     a {
+        font-family: "Maragsa";
         text-decoration: none;
-        color: #343a40;
+        font-weight: bold;
+        color: ${({ scroll }) => (scroll ? "black" : "#17718d")};
     }
     li {
         margin: 5px 0 5px 0;
