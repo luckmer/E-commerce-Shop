@@ -9,8 +9,8 @@ import {
     ImgFour,
 } from "../styles/LandingStyle";
 function LandingPage() {
-    const { fetchData } = useContext(DataContext);
-    const Mapping = fetchData.map(({ src }) => src);
+    const { DataControl } = useContext(DataContext);
+    const Mapping = DataControl.fetchData.map(({ src }) => src);
 
     return (
         <Container>
@@ -21,7 +21,7 @@ function LandingPage() {
             </ImgOne>
             <ImgTwo>
                 <Link to="/products">
-                    <img src={Mapping[2]} alt={Mapping[2]} />
+                    <img src={Mapping[9]} alt={Mapping[2]} />
                 </Link>
             </ImgTwo>
             <ImgThree>

@@ -1,33 +1,30 @@
 import React, { useContext } from "react";
+import { Container, Shoes } from "../styles/products";
 import ImgCarousel from "../components/Carousel";
 import { DataContext } from "../data/Data";
+import ContactPanel from "../components/Contact";
 import { Bag } from "../components/Bag";
 import { Link } from "react-router-dom";
-import { Container, Contact, Shoes } from "../styles/products";
-function Products() {
-    const { fetchData } = useContext(DataContext);
 
+function Products() {
+    const { DataControl } = useContext(DataContext);
+    const Sliced = DataControl.fetchData.slice(0, 4);
     return (
         <Container>
             <ImgCarousel />
             <Bag />
-
             <Shoes>
-                {fetchData.map(({ src, _id }) => (
+                {Sliced.map(({ src, _id, price }) => (
                     <Link to={`/${_id}`} key={_id}>
-                        <img src={src} alt={src} />
+                        <header>price {price}</header>
+                        <hr />
+                        <div>
+                            <img src={src} alt={src} />
+                        </div>
                     </Link>
                 ))}
             </Shoes>
-            <Contact>
-                <div>
-                    <ul>
-                        <li>dsa</li>
-                        <li>dsa</li>
-                        <li>dsa</li>
-                    </ul>
-                </div>
-            </Contact>
+            <ContactPanel />
         </Container>
     );
 }
