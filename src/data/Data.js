@@ -3,9 +3,15 @@ import { fetchData } from "./Api";
 
 export const DataContext = createContext();
 function Data({ children }) {
-    const [state] = useState({ fetchData });
+    const [DataControl, setDataControl] = useState({
+        fetchData,
+        table: [],
+    });
+
     return (
-        <DataContext.Provider value={state}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ DataControl, setDataControl }}>
+            {children}
+        </DataContext.Provider>
     );
 }
 
