@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
 const Back = styled.div`
     z-index: 9999;
     position: fixed;

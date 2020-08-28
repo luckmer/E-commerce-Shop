@@ -5,8 +5,7 @@ import { DataContext } from "../data/Data";
 function Nav() {
     const [state, setState] = useState(false);
     const [scroll, setScroll] = useState(false);
-    const { DataControl } = useContext(DataContext);
-    const Length = DataControl.table.length;
+    const { TableState } = useContext(DataContext);
     useEffect(() => {
         window.addEventListener("scroll", () => {
             window.pageYOffset > 70 ? setScroll(true) : setScroll(false);
@@ -41,7 +40,7 @@ function Nav() {
                 <DivPage>
                     <ul>
                         <Link to="/cart">
-                            <li>Cart {Length} </li>
+                            <li>Cart {TableState.table.length}</li>
                         </Link>
                     </ul>
                 </DivPage>
