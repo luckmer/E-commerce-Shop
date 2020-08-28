@@ -5,20 +5,14 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 function Details({ match }) {
     const [state, setState] = useState({ content: [] });
-    const contextType = useContext(DataContext);
-    console.log(contextType);
-    const Table = contextType.DataControl.table;
+    const { DataControl, handleClick } = useContext(DataContext);
 
     useEffect(() => {
-        const CorrectId = contextType.DataControl.fetchData.filter(
+        const CorrectId = DataControl.fetchData.filter(
             (el) => el._id === match.params.id
         );
         setState({ content: CorrectId });
-    }, [contextType.DataControl.fetchData, match.params.id]);
-
-    const handleClick = () => {
-        Table.push(...state.content);
-    };
+    }, [DataControl.fetchData, match.params.id]);
 
     return (
         <>
@@ -29,14 +23,12 @@ function Details({ match }) {
                     </IMG>
                     <ContextView>
                         <p>{context}</p>
-
                         <Div>
                             <Link to="/products">
                                 <button>Back</button>
                             </Link>
-                            <button onClick={() => handleClick(_id)}>
-                                Buy
-                            </button>
+
+                            <button onClick={handleClick}>Buy</button>
                         </Div>
                     </ContextView>
                 </Container>

@@ -9,21 +9,21 @@ import {
     Box,
     Row,
     Section,
+    Div,
 } from "../styles/CartStyles";
 
 function Cart() {
-    const { DataControl, Delete } = useContext(DataContext);
-
+    const { Delete, TableState } = useContext(DataContext);
     return (
         <Container>
             <ShopHeader>
-                <p>Items : {DataControl.table.length}</p>
+                <p>Items : {TableState.table.length}</p>
                 <p>Total : 0$</p>
             </ShopHeader>
             <ScrollPanel>
-                {DataControl.table.map(
-                    ({ src, _id, context, title, count, price }) => (
-                        <ContextContainer key={_id}>
+                {TableState.table.map(
+                    ({ src, context, title, count, price }, i) => (
+                        <ContextContainer key={i}>
                             <img src={src} alt={src} />
                             <Box>
                                 <Row>
@@ -37,15 +37,7 @@ function Cart() {
                                     <button>+</button>
                                 </div>
                             </Box>
-                            <div
-                                style={{
-                                    cursor: "pointer",
-                                    fontWeight: "bold",
-                                }}
-                                onClick={Delete}
-                            >
-                                X
-                            </div>
+                            <Div onClick={Delete}>X</Div>
                         </ContextContainer>
                     )
                 )}
@@ -55,7 +47,7 @@ function Cart() {
                 <Link to="/catalog">
                     <button>Continue</button>
                 </Link>
-                <button>Buy</button>
+                <button onClick={Delete}>Buy</button>
             </Section>
         </Container>
     );

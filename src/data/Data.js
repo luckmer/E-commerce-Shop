@@ -3,28 +3,41 @@ import { fetchData } from "./Api";
 
 export const DataContext = createContext();
 function Data({ children }) {
-    const [DataControl, setDataControl] = useState({
+    const [DataControl] = useState({
         fetchData,
-        table: [],
     });
+    const [TableState, setTableState] = useState({ table: [] });
 
-    // useEffect(() => {
-    //     const store = JSON.parse(localStorage.getItem("cartContext"));
-    //     if (store) setDataControl(store);
-    // }, []);
+    useEffect(() => {
+        const store = JSON.parse(localStorage.getItem("cartItem"));
+        if (store) setTableState(store);
+    }, []);
 
-    // useEffect(() => {
-    //     localStorage.setItem("cartContext", JSON.stringify(DataControl));
-    // }, [DataControl]);
+    useEffect(() => {
+        localStorage.setItem("cartItem", JSON.stringify(TableState));
+    }, [TableState]);
 
     const Delete = () => {
-        let clearState = DataControl.table;
+        let clearState = TableState.table;
         clearState.splice(clearState, 1);
-        setDataControl({ table: clearState });
+        setTableState({ table: clearState });
+    };
+
+    const handleClick = (id) => {
+        const { fetchData } = DataControl;
+        const { table } = TableState;
+        const check = table.every((item) => {
+            return item._id === id;
+        });
+        if (check) {
+            setTableState({ table: [...fetchData] });
+        } else return;
     };
 
     return (
-        <DataContext.Provider value={{ DataControl, Delete }}>
+        <DataContext.Provider
+            value={{ DataControl, Delete, handleClick, TableState }}
+        >
             {children}
         </DataContext.Provider>
     );
