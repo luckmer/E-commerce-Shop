@@ -14,6 +14,16 @@ export const ContextContainer = styled.section`
         object-fit: cover;
     }
 `;
+export const Div = styled.div`
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2vw;
+    height: 4vh;
+`;
 export const Box = styled.div`
     max-width: 500px;
     min-width: 290px;
@@ -57,7 +67,7 @@ export const Section = styled.section`
 `;
 export const ScrollPanel = styled.div`
     overflow-y: scroll;
-    height: 60vh;
+    height: 63vh;
 `;
 export const ShopHeader = styled.div`
     display: flex;
