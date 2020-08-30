@@ -11,7 +11,6 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #fff;
-
     img {
         border-radius: 2px;
         width: 100%;

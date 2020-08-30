@@ -41,8 +41,11 @@ export const Shoes = styled.section`
         background-color: #fff;
     }
     img {
-        border-radius: 2px;
-        width: 20vw;
-        flex: 2;
+        border-radius: 5px;
+        max-width: 400px;
+        min-width: 290px;
+        height: 600px;
+        display: block;
+        object-fit: cover;
     }
 `;

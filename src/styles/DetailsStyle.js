@@ -17,7 +17,7 @@ export const IMG = styled.div`
     flex: 2;
     grid-area: img;
     img {
-        width: 100%;
+        width: 20vw;
     }
 `;
 export const ContextView = styled.section`

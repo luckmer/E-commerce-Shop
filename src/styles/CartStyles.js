@@ -7,7 +7,7 @@ export const ContextContainer = styled.section`
     padding: 20px;
     img {
         border-radius: 5px;
-        max-width: 500px;
+        max-width: 300px;
         min-width: 290px;
         height: 300px;
         display: block;
