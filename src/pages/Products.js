@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Shoes } from "../styles/products";
-import ImgCarousel from "../components/Carousel";
+import { ContactPanel, ImgCarousel } from "../Imports/index";
 import { DataContext } from "../data/Data";
-import ContactPanel from "../components/Contact";
 import { Bag } from "../components/Bag";
 import { Link } from "react-router-dom";
 

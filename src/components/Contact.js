@@ -9,7 +9,7 @@ const Contact = styled.section`
         display: flex;
         justify-content: space-around;
         width: 100%;
-        height: 30vh;
+        height: 20vh;
         background-color: black;
     }
     ul {
