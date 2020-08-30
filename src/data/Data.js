@@ -8,6 +8,7 @@ function Data({ children }) {
     });
     const [TableState, setTableState] = useState({ table: [] });
     const [count, setCount] = useState(0);
+
     useEffect(() => {
         const store = JSON.parse(localStorage.getItem("cartItem"));
         if (store) setTableState(store);
@@ -23,10 +24,13 @@ function Data({ children }) {
         setTableState({ table: clearState });
     };
 
-    const handleClick = (_id) => {
+    const handleClick = (id) => {
         const { table } = TableState;
-        const Context = table.concat(DataControl.fetchData[_id - 1]);
-        setTableState({ table: [...Context] });
+        const TableValue = table.every(({ _id }) => _id !== id);
+        const Context = table.concat(DataControl.fetchData[id - 1]);
+        if (TableValue) {
+            setTableState({ table: [...Context] });
+        } else return;
     };
 
     const increment = () => {
