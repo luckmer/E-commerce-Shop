@@ -1,64 +1,41 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
+import React, { useContext, useState } from "react";
+import { ContactPanel, PaginatingControl, Paginating } from "../Imports/index";
+import {
+    Container,
+    FilterPanel,
+    Context,
+    Div,
+    Card,
+    Page,
+} from "../styles/CatalogStyles";
 import { DataContext } from "../data/Data";
-import ContactPanel from "../components/Contact";
 import { Link } from "react-router-dom";
-const Container = styled.div`
-    padding: 15vh 0 0 0;
-    width: 100%;
-    min-height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        " . controlPanel  context context context context . "
-        " . controlPanel  context  context context  context . "
-        " . controlPanel  context  context context context .  "
-        "contact contact contact contact contact contact contact";
-`;
 
-const Context = styled.div`
-    padding: 2px 2px 2px;
-    width: 100%;
-    height: 100%;
-    grid-area: context;
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-`;
-const Div = styled.div`
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-`;
-const Card = styled.div`
-    padding: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    img {
-        border-radius: 5px;
-        max-width: 400px;
-        min-width: 290px;
-        height: 600px;
-        display: block;
-        object-fit: cover;
-    }
-`;
-const FilterPanel = styled.div`
-    background-color: black;
-    width: 100%;
-    height: 50vh;
-    grid-area: controlPanel;
-`;
 function Catalog() {
+    const [page, setPage] = useState(1);
+    const [LimitControl] = useState(9);
     const { DataControl } = useContext(DataContext);
+    const [filter, setFilter] = useState("");
+    const { ContextView, paginate } = PaginatingControl({
+        page,
+        LimitControl,
+        DataControl,
+        setPage,
+    });
+    console.log(filter);
     return (
         <Container>
-            <FilterPanel></FilterPanel>
+            <FilterPanel>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="search"
+                        onChange={(e) => setFilter(e.target.value)}
+                    />
+                </div>
+            </FilterPanel>
             <Context>
-                {DataControl.fetchData.map((item, i) => (
+                {ContextView.map((item) => (
                     <Div key={item._id}>
                         <Card>
                             <Link to={`${item._id}`}>
@@ -68,7 +45,15 @@ function Catalog() {
                     </Div>
                 ))}
             </Context>
+
             <ContactPanel />
+            <Page>
+                <Paginating
+                    paginate={paginate}
+                    LimitControl={LimitControl}
+                    totalPosts={DataControl.fetchData.length}
+                />
+            </Page>
         </Container>
     );
 }

@@ -16,15 +16,17 @@ function Details({ match }) {
 
     return (
         <>
-            {state.content.map(({ src, _id, context }) => (
+            {state.content.map(({ src, _id, context, name }) => (
                 <Container key={_id}>
                     <IMG>
                         <img src={src} alt={src} />
                     </IMG>
                     <ContextView>
+                        <header>{name}</header>
+                        <hr />
                         <p>{context}</p>
                         <Div>
-                            <Link to="/products">
+                            <Link to="/catalog">
                                 <button>Back</button>
                             </Link>
                             <button onClick={() => handleClick(_id)}>
