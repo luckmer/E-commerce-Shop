@@ -2,7 +2,7 @@ export const fetchData = [
     {
         //Photo by REVOLT on Unsplash
         _id: "1",
-        name: "one",
+        name: "Nike Red shoes",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -16,6 +16,7 @@ export const fetchData = [
     {
         //Photo by Wengang Zhai on Unsplash
         _id: "2",
+        name: "Red shoes",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -26,10 +27,11 @@ export const fetchData = [
         price: 20,
         count: 1,
     },
-    // { _id: "20" },
+
     {
         //Photo by Mohammad Metri on Unsplash
         _id: "3",
+        name: "colored pins",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -38,11 +40,12 @@ export const fetchData = [
             "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&ix_id=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
         description: "",
         price: 20,
-        count: 1,
+        count: 200,
     },
     {
         //Photo by Imani Bahati on Unsplash
         _id: "4",
+        name: " black shoes",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -51,11 +54,12 @@ export const fetchData = [
             "https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&ix_id=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
         description: "",
         price: 20,
-        count: 1,
+        count: 2,
     },
     {
         //Photo by Irene Kredenets on Unsplash
         _id: "5",
+        name: "colored shoes",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -69,18 +73,21 @@ export const fetchData = [
     {
         //Photo by Morning Brew on Unsplash
         _id: "6",
+        name: "black and blue  Nike",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
         title: "Dolor nulla incididunt amet cillum dolore. ",
+        src:
+            "https://images.unsplash.com/photo-1578116922645-3976907a7671?ixlib=rb-1.2.1&ix_id=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
         description: "",
-
         price: 20,
         count: 1,
     },
     {
         //Photo by Jeremy Alford on Unsplash
         _id: "7",
+        name: "black and blue  Nike",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -94,6 +101,7 @@ export const fetchData = [
     {
         //Photo by Daniel Storek on Unsplash
         _id: "8",
+        name: "shoes",
         type: "shoes",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -109,6 +117,7 @@ export const fetchData = [
     {
         //Photo by Sun Lingyan on Unsplash
         _id: "9",
+        name: "blue bag",
         type: "bag",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -122,6 +131,7 @@ export const fetchData = [
     {
         //Photo by Kelly Sikkema on Unsplash
         _id: "10",
+        name: "bag",
         type: "bag",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -135,6 +145,7 @@ export const fetchData = [
     {
         //Photo by Arno Senoner on Unsplash
         _id: "11",
+        name: "bag",
         type: "bag",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -148,6 +159,7 @@ export const fetchData = [
     {
         //Photo by Creative Headline on Unsplash
         _id: "12",
+        name: "bag",
         type: "bag",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -162,6 +174,7 @@ export const fetchData = [
     {
         //Photo by James Ree on Unsplash
         _id: "13",
+        name: "bag",
         type: "bag",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -175,6 +188,7 @@ export const fetchData = [
     {
         //Photo by Diana Akhmetianova
         _id: "14",
+        name: "bag",
         type: "bag",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -188,6 +202,7 @@ export const fetchData = [
     {
         //Photo by Alex Holyoake
         _id: "15",
+        name: "bag",
         type: "bag",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",

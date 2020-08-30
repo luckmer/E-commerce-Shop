@@ -7,7 +7,7 @@ function Data({ children }) {
         fetchData,
     });
     const [TableState, setTableState] = useState({ table: [] });
-
+    const [count, setCount] = useState(0);
     useEffect(() => {
         const store = JSON.parse(localStorage.getItem("cartItem"));
         if (store) setTableState(store);
@@ -23,20 +23,29 @@ function Data({ children }) {
         setTableState({ table: clearState });
     };
 
-    const handleClick = (id) => {
-        const { fetchData } = DataControl;
+    const handleClick = (_id) => {
         const { table } = TableState;
-        const check = table.every((item) => {
-            return item._id === id;
-        });
-        if (check) {
-            setTableState({ table: [...fetchData] });
-        } else return;
+        const Context = table.concat(DataControl.fetchData[_id - 1]);
+        setTableState({ table: [...Context] });
     };
 
+    const increment = () => {
+        setCount(count + 1);
+    };
+    const decrement = () => {
+        setCount(count - 1);
+    };
     return (
         <DataContext.Provider
-            value={{ DataControl, Delete, handleClick, TableState }}
+            value={{
+                DataControl,
+                Delete,
+                handleClick,
+                TableState,
+                decrement,
+                increment,
+                count,
+            }}
         >
             {children}
         </DataContext.Provider>

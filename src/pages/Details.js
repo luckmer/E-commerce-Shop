@@ -27,8 +27,9 @@ function Details({ match }) {
                             <Link to="/products">
                                 <button>Back</button>
                             </Link>
-
-                            <button onClick={handleClick}>Buy</button>
+                            <button onClick={() => handleClick(_id)}>
+                                Buy
+                            </button>
                         </Div>
                     </ContextView>
                 </Container>

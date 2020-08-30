@@ -14,10 +14,8 @@ function Products() {
             <ImgCarousel />
             <Bag />
             <Shoes>
-                {Sliced.map(({ src, _id, price }) => (
+                {Sliced.map(({ src, _id }) => (
                     <Link to={`/${_id}`} key={_id}>
-                        <header>price {price}</header>
-                        <hr />
                         <div>
                             <img src={src} alt={src} />
                         </div>
