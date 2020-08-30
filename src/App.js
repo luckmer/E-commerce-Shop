@@ -1,9 +1,7 @@
 import React from "react";
-import Data from "./data/Data";
 import { Switch, Route, useLocation } from "react-router-dom";
-import Nav from "./components/nav";
+import { Data, ScrollUp, Nav } from "./Imports/index";
 import { routes } from "./routes";
-import ScrollUp from "./components/ScrollUp";
 function App() {
     const location = useLocation();
     return (

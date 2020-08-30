@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { DataContext } from "../data/Data";
+import styled from "styled-components";
+import Img from "../images/emptyCart.png";
 import { Link } from "react-router-dom";
 import {
     Container,
@@ -10,6 +12,7 @@ import {
     Row,
     Section,
     Div,
+    Information,
 } from "../styles/CartStyles";
 
 function Cart() {
@@ -21,6 +24,18 @@ function Cart() {
         (price, item) => price + item.price,
         0
     );
+
+    if (TableState.table.length <= 0) {
+        return (
+            <Information>
+                <img src={Img} alt={Img} />
+                <h5>Find your own style</h5>
+                <Link to="/catalog">
+                    <button>Buy</button>
+                </Link>
+            </Information>
+        );
+    }
 
     return (
         <Container>
