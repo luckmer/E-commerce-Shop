@@ -34,7 +34,7 @@ function Nav() {
                 </DivPage>
                 <ul>
                     <Link to="/">
-                        <li>Logo</li>
+                        <li>Shop</li>
                     </Link>
                 </ul>
                 <DivPage>
