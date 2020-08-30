@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.section`
     padding: 15vh 5vw 2vh 5vw;
     width: 100%;
     height: 100vh;

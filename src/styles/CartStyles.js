@@ -14,6 +14,32 @@ export const ContextContainer = styled.section`
         object-fit: cover;
     }
 `;
+export const Information = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+        opacity: 0.3;
+    }
+    h5 {
+        color: #0085ff;
+        opacity: 0.6;
+        margin: 2vh 0 2vh 0;
+    }
+    button {
+        margin: 2vh 0 2vh 0;
+        background-color: #0085ff;
+        color: white;
+        width: 10vw;
+        height: 5vh;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+`;
 export const Div = styled.div`
     cursor: pointer;
     font-weight: bold;
