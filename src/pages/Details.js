@@ -1,11 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Container, IMG, ContextView, Div } from "../styles/DetailsStyle";
+import {
+    Container,
+    ContextContainer,
+    Box,
+    Row,
+    Section,
+} from "../styles/CartStyles";
 import { DataContext } from "../data/Data";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 function Details({ match }) {
     const [state, setState] = useState({ content: [] });
-    const { DataControl, handleClick } = useContext(DataContext);
+    const { DataControl, TableState, setTableState } = useContext(DataContext);
 
     useEffect(() => {
         const CorrectId = DataControl.fetchData.filter(
@@ -14,35 +19,50 @@ function Details({ match }) {
         setState({ content: CorrectId });
     }, [DataControl.fetchData, match.params.id]);
 
+    const handleClick = (id) => {
+        const { table } = TableState;
+        const TableValue = table.every(({ _id }) => _id !== id);
+        const Context = table.concat(DataControl.fetchData[id - 1]);
+        if (TableValue) {
+            setTableState({ table: [...Context] });
+        } else return;
+    };
+
     return (
-        <>
-            {state.content.map(({ src, _id, context, name }) => (
-                <Container key={_id}>
-                    <IMG>
-                        <img src={src} alt={src} />
-                    </IMG>
-                    <ContextView>
-                        <header>{name}</header>
-                        <hr />
-                        <p>{context}</p>
-                        <Div>
+        <Container>
+            {state.content.map(
+                ({ src, price, _id, context, title, name }, i) => (
+                    <div key={i}>
+                        <ContextContainer>
+                            <img
+                                src={src}
+                                alt={src}
+                                style={{ width: "50em" }}
+                            />
+                            <Box>
+                                <header>{name}</header>
+                                <hr />
+                                <Row>
+                                    <h2> {title}</h2>
+                                    <span> ${price}</span>
+                                </Row>
+                                <p> {context}</p>
+                                <hr />
+                            </Box>
+                        </ContextContainer>
+                        <Section>
                             <Link to="/catalog">
-                                <button>Back</button>
+                                <button>Continue</button>
                             </Link>
                             <button onClick={() => handleClick(_id)}>
                                 Buy
                             </button>
-                        </Div>
-                    </ContextView>
-                </Container>
-            ))}
-        </>
+                        </Section>
+                    </div>
+                )
+            )}
+        </Container>
     );
 }
-
-Details.propTypes = {
-    context: PropTypes.string,
-    _id: PropTypes.number,
-};
 
 export default Details;

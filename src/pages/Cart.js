@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { DataContext } from "../data/Data";
-import styled from "styled-components";
-import Img from "../images/emptyCart.png";
+import { Img, Counter } from "../Imports/index";
 import { Link } from "react-router-dom";
 import {
     Container,
@@ -16,12 +15,10 @@ import {
 } from "../styles/CartStyles";
 
 function Cart() {
-    const { Delete, TableState, increment, decrement } = useContext(
-        DataContext
-    );
+    const { Delete, TableState, setTableState } = useContext(DataContext);
 
     const Total = TableState.table.reduce(
-        (price, item) => price + item.price,
+        (price, item) => price + item.price * item.count,
         0
     );
 
@@ -44,26 +41,30 @@ function Cart() {
                 <p>Total : {Total}</p>
             </ShopHeader>
             <ScrollPanel>
-                {TableState.table.map((item, i) => (
-                    <ContextContainer key={i}>
-                        <img src={item.src} alt={item.src} />
-                        <Box>
-                            <Row>
-                                <h2> {item.title}</h2>
-                                <span> ${item.price}</span>
-                            </Row>
-                            <p> {item.context}</p>
-                            <div>
-                                <button onClick={increment}>-</button>
-                                <span>{item.count}</span>
-                                <button onClick={decrement}>+</button>
-                            </div>
-                        </Box>
-                        <Div onClick={Delete}>X</Div>
-                    </ContextContainer>
-                ))}
+                {TableState.table.map(
+                    ({ src, price, count, _id, context, title }, i) => (
+                        <ContextContainer key={i}>
+                            <img src={src} alt={src} />
+                            <Box>
+                                <Row>
+                                    <h2> {title}</h2>
+                                    <span> ${price * count}</span>
+                                </Row>
+                                <p> {context}</p>
+                                <div>
+                                    <Counter
+                                        _id={_id}
+                                        count={count}
+                                        setTableState={setTableState}
+                                        TableState={TableState}
+                                    />
+                                </div>
+                            </Box>
+                            <Div onClick={Delete}>X</Div>
+                        </ContextContainer>
+                    )
+                )}
             </ScrollPanel>
-
             <Section>
                 <Link to="/catalog">
                     <button>Continue</button>
