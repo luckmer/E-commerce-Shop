@@ -15,11 +15,16 @@ const Container = styled.section`
         border-radius: 5px;
         margin: 20px 3px 20px 3px;
     }
+    @media screen and (max-width: 850px) {
+        button {
+            padding: 5px 20px 5px 20px;
+        }
+    }
 `;
 function Paginating({ paginate, LimitControl, totalPosts }) {
     const pageNumbers = [];
-    const Test = Math.ceil(totalPosts / LimitControl);
-    for (let i = 1; i <= Test; i++) {
+    const PageLength = Math.ceil(totalPosts / LimitControl);
+    for (let i = 1; i <= PageLength; i++) {
         pageNumbers.push(i);
     }
     return (

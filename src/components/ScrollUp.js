@@ -11,6 +11,12 @@ const Back = styled.div`
         border-radius: 5px;
         padding: 10px;
     }
+    @media screen and (max-width: 850px) {
+        z-index: 9999;
+        position: fixed;
+        left: 76%;
+        top: 80%;
+    }
 `;
 
 function ScrollUp() {

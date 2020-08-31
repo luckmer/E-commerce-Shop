@@ -32,16 +32,14 @@ function Nav() {
                         </Link>
                     </ul>
                 </DivPage>
-
                 <ul>
                     <Link to="/">
                         <li>Shop</li>
                     </Link>
                 </ul>
-
                 <DivPage>
                     <ul>
-                        <Link to="/">
+                        <Link to="/liked/">
                             <li>Like</li>
                         </Link>
                     </ul>
