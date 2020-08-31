@@ -21,7 +21,6 @@ export const Information = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
     img {
         opacity: 0.3;
     }
@@ -69,7 +68,7 @@ export const Box = styled.div`
 `;
 export const Row = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 15px;
 `;
 export const Container = styled.div`

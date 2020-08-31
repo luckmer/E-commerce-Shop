@@ -8,9 +8,9 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-        " controlPanel controlPanel  context context context context . "
-        " controlPanel controlPanel  context  context context  context . "
-        " controlPanel controlPanel  context  context context context .  "
+        " controlPanel context  context context context context . "
+        " controlPanel context  context  context context  context . "
+        " controlPanel context  context  context context context .  "
         "page page page page page page page "
         "contact contact contact contact contact contact contact";
 `;
@@ -42,6 +42,15 @@ export const Card = styled.div`
         display: block;
         object-fit: cover;
     }
+    @media (max-width: 850px) {
+        img {
+        border-radius: 5px;
+        max-width: 300px;
+        min-width: 290px;
+        height: 600px;
+        display: block;
+        object-fit: cover;
+    }
 `;
 export const FilterPanel = styled.div`
     width: 100%;
@@ -57,7 +66,6 @@ export const FilterPanel = styled.div`
         padding: 10px;
         text-align: left;
         border: 0.5px solid black;
-        background-color: #;
     }
 `;
 export const Page = styled.div`

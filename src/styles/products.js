@@ -23,19 +23,24 @@ export const Section = styled.section`
     .carousel-inner {
         width: 100%;
         height: 100vh !important;
+        @media (max-width: 850px) {
+            width: 100%;
+            height: 100% !important;
+        }
     }
 `;
 export const Shoes = styled.section`
+    header {
+        color: black;
+        text-align: center;
+    }
     grid-area: shoes;
     padding: 10vh 1vw 2vh 1vw;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    flex: 1.36;
+    justify-content: center;
     div {
         padding: 20px;
-        width: 20vw;
-        position: relative;
         display: flex;
         flex-direction: column;
         background-color: #fff;
@@ -47,5 +52,19 @@ export const Shoes = styled.section`
         height: 600px;
         display: block;
         object-fit: cover;
+    }
+    @media (max-width: 850px) {
+        padding: 10vh 1vw 2vh 1vw;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        img {
+            border-radius: 5px;
+            max-width: 300px;
+            min-width: 290px;
+            height: 600px;
+            display: block;
+            object-fit: cover;
+        }
     }
 `;

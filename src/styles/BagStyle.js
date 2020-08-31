@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const Div = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-flow: row wrap;
 `;
 export const Card = styled.div`
@@ -16,7 +16,16 @@ export const Card = styled.div`
         width: 100%;
         flex: 2;
     }
+    @media screen and (max-width: 850px) {
+        padding: 10px;
+        img {
+            border-radius: 2px;
+            width: 100%;
+            flex: 2;
+        }
+    }
 `;
+
 export const Slider = styled.section`
     grid-area: slider;
     padding: 10vh 1vw 2vh 1vw;
