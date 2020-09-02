@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import { fetchData } from "./Api";
 
 export const DataContext = createContext();
+
 function Data({ children }) {
     const [DataControl] = useState({
         fetchData,
@@ -23,6 +24,15 @@ function Data({ children }) {
         setTableState({ table: clearState });
     };
 
+    const handleClick = (id) => {
+        const { table } = TableState;
+        const TableValue = table.every(({ _id }) => _id !== id);
+        const Context = table.concat(DataControl.fetchData[id - 1]);
+        if (TableValue) {
+            setTableState({ table: [...Context] });
+        } else return;
+    };
+
     return (
         <DataContext.Provider
             value={{
@@ -30,6 +40,7 @@ function Data({ children }) {
                 Delete,
                 TableState,
                 setTableState,
+                handleClick,
             }}
         >
             {children}

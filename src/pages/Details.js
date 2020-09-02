@@ -10,7 +10,7 @@ import { DataContext } from "../data/Data";
 import { Link } from "react-router-dom";
 function Details({ match }) {
     const [state, setState] = useState({ content: [] });
-    const { DataControl, TableState, setTableState } = useContext(DataContext);
+    const { DataControl, handleClick } = useContext(DataContext);
 
     useEffect(() => {
         const CorrectId = DataControl.fetchData.filter(
@@ -18,15 +18,6 @@ function Details({ match }) {
         );
         setState({ content: CorrectId });
     }, [DataControl.fetchData, match.params.id]);
-
-    const handleClick = (id) => {
-        const { table } = TableState;
-        const TableValue = table.every(({ _id }) => _id !== id);
-        const Context = table.concat(DataControl.fetchData[id - 1]);
-        if (TableValue) {
-            setTableState({ table: [...Context] });
-        } else return;
-    };
 
     return (
         <Container>
