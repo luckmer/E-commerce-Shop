@@ -1,7 +1,7 @@
-function PaginatingControl({ page, LimitControl, DataControl, setPage }) {
+function PaginatingControl({ page, LimitControl, filteredData, setPage }) {
     const Length = page * LimitControl;
     const Post = Length - LimitControl;
-    const ContextView = DataControl.fetchData.slice(Post, Length);
+    const ContextView = filteredData.slice(Post, Length);
     const paginate = (index) => setPage(index);
     return { ContextView, paginate };
 }
