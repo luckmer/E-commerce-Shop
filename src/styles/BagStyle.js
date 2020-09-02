@@ -16,7 +16,7 @@ export const Card = styled.div`
         width: 100%;
         flex: 2;
     }
-    @media screen and (max-width: 850px) {
+    @media (max-width: 850px) {
         padding: 10px;
         img {
             border-radius: 2px;

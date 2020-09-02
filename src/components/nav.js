@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { NavBar, Header, Menu, DivPage } from "../styles/NavBar";
 import { Link } from "react-router-dom";
 import { DataContext } from "../data/Data";
+
 function Nav() {
     const [state, setState] = useState(false);
     const [scroll, setScroll] = useState(false);
