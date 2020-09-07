@@ -40,13 +40,10 @@ function Nav() {
                 </ul>
                 <DivPage>
                     <ul>
-                        <Link to="/liked/">
-                            <li>Like</li>
-                        </Link>
-                    </ul>
-                    <ul>
                         <Link to="/cart">
-                            <li>Cart {TableState.table.length}</li>
+                            <li>
+                                Cart <span> {TableState.table.length}</span>
+                            </li>
                         </Link>
                     </ul>
                 </DivPage>
