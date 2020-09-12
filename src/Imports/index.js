@@ -1,4 +1,4 @@
-export { default as ContactPanel } from "../components/Contact";
+export { default as Contact } from "../components/Contact";
 export { default as PaginatingControl } from "../components/PaginatingControl";
 export { default as Paginating } from "../components/Paginating";
 export { default as ImgCarousel } from "../components/Carousel";
