@@ -1,9 +1,9 @@
 //pages
-import LandingPage from "./pages/LandingPage";
-import Products from "./pages/Products";
-import Details from "./pages/Details";
-import Catalog from "./pages/Catalog";
-import Cart from "./pages/Cart";
+import LandingPage from "./pages/LandingPage.jsx";
+import Products from "./pages/Products.jsx";
+import Details from "./pages/Details.jsx";
+import Catalog from "./pages/Catalog.jsx";
+import Cart from "./pages/Cart.jsx";
 
 export const routes = [
     { path: "/", Component: LandingPage, name: "home" },
