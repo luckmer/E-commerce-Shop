@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-const Contact = styled.section`
+const Context = styled.section`
     grid-area: contact;
     color: white;
     div {
@@ -23,7 +23,7 @@ const Contact = styled.section`
         }
     }
 `;
-function ContactPanel() {
+function Contact() {
     const n = 1;
     let view = [...Array(n)].map(() => (
         <div key={n}>
@@ -48,7 +48,11 @@ function ContactPanel() {
         </div>
     ));
 
-    return <Contact>{view}</Contact>;
+    return (
+        <>
+            <Context>{view}</Context>;
+        </>
+    );
 }
 
-export default ContactPanel;
+export default Contact;

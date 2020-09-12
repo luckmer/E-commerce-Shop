@@ -21,6 +21,7 @@ const Container = styled.section`
         }
     }
 `;
+
 function Paginating({ paginate, LimitControl, totalPosts }) {
     const pageNumbers = [];
     const PageLength = Math.ceil(totalPosts / LimitControl);
