@@ -215,7 +215,7 @@ export const fetchData = [
     {
         //Photo by Luis
         _id: "16",
-        name: "blouse",
+        name: "Dark t-shirt",
         type: "blouse",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -229,7 +229,7 @@ export const fetchData = [
     {
         //Photo by Faith & Yarn
         _id: "17",
-        name: "blouse",
+        name: "t-shirt",
         type: "blouse",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
@@ -243,7 +243,7 @@ export const fetchData = [
     {
         //Photo by Md Salman
         _id: "18",
-        name: "blouse",
+        name: "t-shirt",
         type: "blouse",
         context:
             "Velit esse nostrud excepteur esse eu do ad incididunt tempor qui irure ipsum officia. Laboris veniam anim aliquip excepteur. Non culpa pariatur excepteur adipisicing magna incididunt nisi. Nisi ex deserunt irure incididunt fugiat sint nostrud minim exercitation non ea anim.",
