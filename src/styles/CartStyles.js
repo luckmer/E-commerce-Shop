@@ -25,13 +25,13 @@ export const Information = styled.div`
         opacity: 0.3;
     }
     h5 {
-        color: ${colors.lightBlue};
+        color: ${colors.DarkColor};
         opacity: 0.6;
         margin: 2vh 0 2vh 0;
     }
     button {
         margin: 2vh 0 2vh 0;
-        background-color: ${colors.lightBlue};
+        background-color: ${colors.DarkColor};
         color: white;
         width: 10vw;
         height: 5vh;

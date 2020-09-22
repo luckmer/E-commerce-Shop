@@ -10,7 +10,7 @@ export const fetchData = [
         src:
             "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         description: "",
-        price: 20,
+        price: 820,
         count: 1,
     },
     {
@@ -24,7 +24,7 @@ export const fetchData = [
         src:
             "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?ixlib=rb-1.2.1&ix_id=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
         description: "",
-        price: 20,
+        price: 120,
         count: 1,
     },
 
