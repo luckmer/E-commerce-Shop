@@ -8,3 +8,4 @@ export { default as Data } from "../data/Data";
 export { default as Counter } from "../components/Counter";
 export { default as Img } from "../images/emptyCart.png";
 export { default as FilterEffect } from "../components/FilterEffect";
+export { default as IncorrectValue } from "../components/IncorrectValue";
