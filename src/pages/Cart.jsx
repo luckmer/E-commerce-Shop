@@ -17,6 +17,7 @@ import {
 function Cart() {
     const {
         Delete,
+        Buy,
         store: {
             DATA: [TableState, setTableState],
         },
@@ -74,7 +75,7 @@ function Cart() {
                 <Link to="/catalog">
                     <button>Continue</button>
                 </Link>
-                <button onClick={Delete}>Buy</button>
+                <button onClick={Buy}>Buy</button>
             </Section>
         </Container>
     );

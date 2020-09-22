@@ -27,6 +27,7 @@ function Data({ children }) {
         clearState.splice(clearState, 1);
         setTableState({ table: clearState });
     };
+    const Buy = () => setTableState({ table: [] });
 
     const handleClick = (id) => {
         const { table } = TableState;
@@ -46,6 +47,7 @@ function Data({ children }) {
                 handleClick,
                 TableState,
                 setTableState,
+                Buy,
             }}
         >
             {children}

@@ -6,6 +6,7 @@ function IncorrectValue({ handleChange, search, correctMark, correctPrice }) {
         <Container>
             <SearchControl>
                 <input
+                    placeholder="search"
                     type="text"
                     name="filterInput"
                     value={search.filterInput}
