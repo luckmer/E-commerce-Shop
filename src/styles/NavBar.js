@@ -1,12 +1,12 @@
 import styled from "styled-components";
-
+import colors from "./colors";
 export const NavBar = styled.div`
     position: fixed;
     width: 100%;
     z-index: 9999;
     top: 0;
     left: 0;
-    border-bottom: 1px solid #ced4da;
+    border-bottom: 1px solid ${colors.lightGrey};
     text-decoration: none;
 `;
 export const Header = styled.header`

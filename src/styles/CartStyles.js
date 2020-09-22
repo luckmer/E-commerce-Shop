@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colors from "./colors";
 export const ContextContainer = styled.section`
     display: flex;
     justify-content: space-around;
@@ -25,13 +25,13 @@ export const Information = styled.div`
         opacity: 0.3;
     }
     h5 {
-        color: #0085ff;
+        color: ${colors.lightBlue};
         opacity: 0.6;
         margin: 2vh 0 2vh 0;
     }
     button {
         margin: 2vh 0 2vh 0;
-        background-color: #0085ff;
+        background-color: ${colors.lightBlue};
         color: white;
         width: 10vw;
         height: 5vh;
@@ -54,7 +54,7 @@ export const Box = styled.div`
     min-width: 290px;
     margin: 25px;
     button {
-        background-color: #212529;
+        background-color: ${colors.DarkColor};
         color: white;
         width: 30px;
         height: 30px;
@@ -85,7 +85,7 @@ export const Section = styled.section`
         padding: 1vh 3vw 1vh 3vw;
         border-radius: 5px;
         &:nth-child(2) {
-            background-color: #212529;
+            background-color: ${colors.DarkColor};
             color: white;
         }
     }

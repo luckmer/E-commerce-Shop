@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import colors from "./colors";
+
 export const Div = styled.div`
     display: flex;
     justify-content: center;
@@ -10,7 +12,7 @@ export const Card = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: ${colors.white};
     img {
         border-radius: 2px;
         width: 100%;

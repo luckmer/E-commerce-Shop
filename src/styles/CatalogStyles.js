@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-
+import colors from "./colors";
 export const Container = styled.div`
     padding: 15vh 0 0 0;
     width: 100%;
@@ -32,7 +32,7 @@ export const Incorrect = styled.div`
     animation: ${rotate} 2s linear infinite;
     div {
         border: 12px solid white;
-        border-top: 12px solid #0085ff;
+        border-top: 12px solid ${colors.lightBlue};
         border-radius: 50%;
         width: 66px;
         height: 66px;
@@ -45,13 +45,24 @@ export const SearchControl = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-
-    input {
+    input,
+    select {
+        &:first-child {
+            border: 1px solid black;
+        }
         padding: 10px 10px 10px 10px;
-        border: 1px solid black;
         border-radius: 5px;
         width: 100%;
+    }
+    @media (max-width: 850px) {
+        input,
+        selecT {
+            padding: 10px 10px 10px 10px;
+
+            border-radius: 5px;
+            width: 100%;
+        }
+        flex-direction: column;
     }
 `;
 export const DivHide = styled.div`
@@ -65,7 +76,7 @@ export const Hide = styled.div`
     height: 100%;
     button {
         margin: 2vh 2vh 2vh 2vw;
-        background-color: #212529;
+        background-color: ${colors.DarkColor};
         color: white;
         width: 10em;
         height: 3em;
@@ -74,7 +85,7 @@ export const Hide = styled.div`
         opacity: 0;
     }
     &:hover {
-        background-color: #212529;
+        background-color: ${colors.DarkColor};
         img {
             opacity: 0.5;
         }
@@ -102,7 +113,7 @@ export const Card = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: ${colors.white};
     img {
         border-radius: 5px;
         max-width: 400px;

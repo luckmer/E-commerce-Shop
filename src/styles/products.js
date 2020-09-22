@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colors from "./colors";
 export const Container = styled.section`
     width: 100%;
     min-height: 100%;
@@ -43,7 +43,7 @@ export const Shoes = styled.section`
         padding: 20px;
         display: flex;
         flex-direction: column;
-        background-color: #fff;
+        background-color: ${colors.white};
     }
     img {
         border-radius: 5px;
