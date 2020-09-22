@@ -42,7 +42,6 @@ function Catalog() {
 
     const correctPrice = [...new Set(price)];
     const correctMark = [...new Set(mark)];
-
     const handleChange = (e) => {
         setSearch({ ...search, [e.target.name]: e.target.value });
     };

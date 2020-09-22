@@ -26,7 +26,6 @@ function FilterEffect(search, setFilteredData) {
                 item.price.toString().includes(search.filterPrice.toString())
             );
         }
-        console.log(search);
 
         setFilteredData(filterS);
     }, [
