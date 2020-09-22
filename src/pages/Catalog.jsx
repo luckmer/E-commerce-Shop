@@ -59,6 +59,7 @@ function Catalog() {
         <Container>
             <SearchControl page={page}>
                 <input
+                    placeholder="search"
                     type="text"
                     name="filterInput"
                     value={search.filterInput}
