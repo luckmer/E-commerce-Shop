@@ -36,8 +36,10 @@ export const Header = styled.header`
             state ? "translateY(0)" : "translateY(-100%)"};
         background-color: black;
         width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
+        justify-content: center;
         flex-direction: column;
         transition: transform 0.3s ease-in-out;
         a {
