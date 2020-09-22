@@ -15,7 +15,12 @@ import {
 } from "../styles/CartStyles";
 
 function Cart() {
-    const { Delete, TableState, setTableState } = useContext(DataContext);
+    const {
+        Delete,
+        store: {
+            DATA: [TableState, setTableState],
+        },
+    } = useContext(DataContext);
 
     const Total = TableState.table.reduce(
         (price, item) => price + item.price * item.count,

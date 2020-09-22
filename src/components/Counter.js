@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../data/Data";
+function Counter({ _id, count }) {
+    const {
+        store: {
+            DATA: [TableState, setTableState],
+        },
+    } = useContext(DataContext);
 
-function Counter({ _id, count, setTableState, TableState }) {
     const decrement = (id) => {
         const { table } = TableState;
         table.forEach((item) => {

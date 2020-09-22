@@ -6,7 +6,11 @@ import { DataContext } from "../data/Data";
 function Nav() {
     const [state, setState] = useState(false);
     const [scroll, setScroll] = useState(false);
-    const { TableState } = useContext(DataContext);
+    const {
+        store: {
+            DATA: [TableState],
+        },
+    } = useContext(DataContext);
 
     useEffect(() => {
         window.addEventListener("scroll", () => {

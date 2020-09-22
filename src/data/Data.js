@@ -9,6 +9,10 @@ function Data({ children }) {
     });
     const [TableState, setTableState] = useState({ table: [] });
 
+    const store = {
+        DATA: [TableState, setTableState],
+    };
+
     useEffect(() => {
         const store = JSON.parse(localStorage.getItem("cartItem"));
         if (store) setTableState(store);
@@ -38,9 +42,10 @@ function Data({ children }) {
             value={{
                 DataControl,
                 Delete,
+                store,
+                handleClick,
                 TableState,
                 setTableState,
-                handleClick,
             }}
         >
             {children}
