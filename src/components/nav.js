@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../data/Data";
 
 function Nav() {
-    const [state, setState] = useState(false);
+    const [state, setState] = useState(true);
     const [scroll, setScroll] = useState(false);
     const { TableState } = useContext(DataContext);
     useEffect(() => {
@@ -22,24 +22,24 @@ function Nav() {
             </Menu>
             <Header scroll={scroll} state={state}>
                 <DivPage>
-                    <ul>
+                    <ul onClick={() => setState(!state)}>
                         <Link to="/catalog">
                             <li>Catalog</li>
                         </Link>
                     </ul>
-                    <ul>
+                    <ul onClick={() => setState(!state)}>
                         <Link to="/products">
                             <li>Products</li>
                         </Link>
                     </ul>
                 </DivPage>
-                <ul>
+                <ul onClick={() => setState(!state)}>
                     <Link to="/">
                         <li>Shop</li>
                     </Link>
                 </ul>
                 <DivPage>
-                    <ul>
+                    <ul onClick={() => setState(!state)}>
                         <Link to="/cart">
                             <li>
                                 Cart <span> {TableState.table.length}</span>
