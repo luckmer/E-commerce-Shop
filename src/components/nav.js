@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../data/Data";
 
 function Nav() {
-    const [state, setState] = useState(true);
+    const [state, setState] = useState(false);
     const [scroll, setScroll] = useState(false);
     const { TableState } = useContext(DataContext);
+
     useEffect(() => {
         window.addEventListener("scroll", () => {
             window.pageYOffset > 70 ? setScroll(true) : setScroll(false);
