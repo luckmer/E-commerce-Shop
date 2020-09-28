@@ -20,7 +20,6 @@ function Data({ children }) {
     };
 
     const edit = (id, state) => {
-        console.log(state);
         const { shipping, paymentCont } = payment;
         const payEdit = paymentCont.map((task) => {
             if (id === task.id) {
@@ -38,6 +37,26 @@ function Data({ children }) {
             return task;
         });
         setPayment({ paymentCont: payEdit, shipping });
+    };
+
+    const editShoppingData = (id, state) => {
+        const { shipping, paymentCont } = payment;
+        const ShopData = shipping.map((task) => {
+            if (id === task.id) {
+                return {
+                    ...task,
+                    name: task.name,
+                    Surname: task.Surname,
+                    address: state.address,
+                    theTown: state.theTown,
+                    PostalCod: state.PostalCode,
+                    phoneNumber: state.phoneNumber,
+                    EmailAddress: state.EmailAddress,
+                };
+            }
+            return task;
+        });
+        setPayment({ shipping: ShopData, paymentCont });
     };
 
     const Delete = () => {
@@ -77,6 +96,7 @@ function Data({ children }) {
         <DataContext.Provider
             value={{
                 edit,
+                editShoppingData,
                 DataControl,
                 Delete,
                 store,
