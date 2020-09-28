@@ -9,24 +9,28 @@ function Data({ children }) {
     });
     const [TableState, setTableState] = useState({ table: [] });
 
+    const [payment, setPayment] = useState({
+        shipping: [],
+        paymentCont: [],
+    });
+
     const store = {
         DATA: [TableState, setTableState],
+        BUY: [payment, setPayment],
     };
-
-    useEffect(() => {
-        const store = JSON.parse(localStorage.getItem("cartItem"));
-        if (store) setTableState(store);
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem("cartItem", JSON.stringify(TableState));
-    }, [TableState]);
 
     const Delete = () => {
-        let clearState = TableState.table;
-        clearState.splice(clearState, 1);
-        setTableState({ table: clearState });
+        let cS = TableState.table;
+        let cs = payment.shipping;
+        let cp = payment.paymentCont;
+        cS.splice(cS, 1);
+        cs.splice(cs, 1);
+        cp.splice(cp, 1);
+
+        setTableState({ table: cS });
+        setPayment({ shipping: cs, paymentCont: cp });
     };
+
     const Buy = () => setTableState({ table: [] });
 
     const handleClick = (id) => {
@@ -37,6 +41,18 @@ function Data({ children }) {
             setTableState({ table: [...Context] });
         } else return;
     };
+
+    useEffect(() => {
+        const store = JSON.parse(localStorage.getItem("cartItem"));
+        const paymentStore = JSON.parse(localStorage.getItem("paymentData"));
+        if (paymentStore) setPayment(paymentStore);
+        if (store) setTableState(store);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("cartItem", JSON.stringify(TableState));
+        localStorage.setItem("paymentData", JSON.stringify(payment));
+    }, [TableState, payment]);
 
     return (
         <DataContext.Provider
