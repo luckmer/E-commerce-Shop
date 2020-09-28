@@ -20,7 +20,7 @@ function CheckPayment() {
         edit,
         editShoppingData,
         store: {
-            DATA: [setTableState],
+            DATA: [, setTableState],
             BUY: [payment, setPayment],
         },
     } = useContext(DataContext);
