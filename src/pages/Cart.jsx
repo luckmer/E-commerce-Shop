@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { DataContext } from "../data/Data";
 import { Img, Counter } from "../Imports/index";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
     Container,
     ShopHeader,
@@ -15,19 +15,20 @@ import {
 } from "../styles/CartStyles";
 
 function Cart() {
+    const history = useHistory();
     const {
         Delete,
-        Buy,
         store: {
             DATA: [TableState, setTableState],
+            BUY: [payment],
         },
     } = useContext(DataContext);
-
+    const { shipping, paymentCont } = payment;
     const Total = TableState.table.reduce(
         (price, item) => price + item.price * item.count,
         0
     );
-
+    console.log(shipping.length);
     if (TableState.table.length <= 0) {
         return (
             <Information>
@@ -39,6 +40,22 @@ function Cart() {
             </Information>
         );
     }
+
+    const handleClick = () => {
+        if (shipping.length <= 0) {
+            history.push("/checkout");
+        } else {
+            history.push("/payment");
+        }
+
+        if (shipping.length >= 1) {
+            if (paymentCont.length >= 1) {
+                history.push("/check");
+            }
+        } else {
+            history.push("/checkout");
+        }
+    };
 
     return (
         <Container>
@@ -75,7 +92,8 @@ function Cart() {
                 <Link to="/catalog">
                     <button>Continue</button>
                 </Link>
-                <button onClick={Buy}>Buy</button>
+
+                <button onClick={handleClick}>Buy</button>
             </Section>
         </Container>
     );
