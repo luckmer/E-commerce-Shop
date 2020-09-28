@@ -7,7 +7,7 @@ export const ContainerContext = styled.div`
 export const FormContext = styled.div`
     margin: 0 40px 0 40px;
     button {
-        border-radius: 10px;
+        border-radius: 100px;
         padding: 10px 20px 10px 20px;
         background-color: #1d65c1;
         color: #fff;

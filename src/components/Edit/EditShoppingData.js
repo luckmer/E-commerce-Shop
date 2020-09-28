@@ -35,6 +35,7 @@ function PaymentContext(props) {
                     <h4>
                         address
                         <input
+                            type="text"
                             name="address"
                             onChange={handleChange}
                             ref={register({ required: true })}
@@ -44,6 +45,7 @@ function PaymentContext(props) {
                     <h5>
                         The Town
                         <input
+                            type="text"
                             name="theTown"
                             onChange={handleChange}
                             ref={register({ required: true })}
@@ -53,6 +55,7 @@ function PaymentContext(props) {
                     <h5>
                         Post Code
                         <input
+                            type="number"
                             name="PostalCode"
                             onChange={handleChange}
                             ref={register({ required: true })}
@@ -62,6 +65,7 @@ function PaymentContext(props) {
                     <h5>
                         phone number
                         <input
+                            type="number"
                             name="phoneNumber"
                             onChange={handleChange}
                             ref={register({ required: true })}
@@ -71,6 +75,7 @@ function PaymentContext(props) {
                     <h5>
                         email address
                         <input
+                            type="email"
                             name="EmailAddress"
                             onChange={handleChange}
                             ref={register({ required: true })}

@@ -8,17 +8,29 @@ export const Container = styled.div`
     }
 `;
 export const Context = styled.div`
-    display: flex;
+    @media (min-width: 1000px) {
+        display: flex;
+    }
 `;
 export const CompleteButton = styled.div`
     margin: 30px 0 30px 0;
     display: flex;
     align-items: center;
     flex-direction: column;
-    button {
-        border-radius: 100px;
-        padding: 1em 10em 1em 10em;
-        background-color: #1d65c1;
-        color: #fff;
+    @media (min-width: 1000px) {
+        button {
+            border-radius: 100px;
+            padding: 1em 10em 1em 10em;
+            background-color: #1d65c1;
+            color: #fff;
+        }
+    }
+    @media (max-width: 1000px) {
+        button {
+            border-radius: 100px;
+            padding: 10px 20px 10px 20px;
+            background-color: #1d65c1;
+            color: #fff;
+        }
     }
 `;

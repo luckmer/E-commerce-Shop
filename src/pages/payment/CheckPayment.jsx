@@ -15,6 +15,7 @@ import {
 
 function CheckPayment() {
     const history = useHistory();
+
     const {
         edit,
         editShoppingData,

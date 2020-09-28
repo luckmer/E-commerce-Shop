@@ -61,6 +61,7 @@ function Shipping() {
                 <form onSubmit={handleSubmit(handleUpload)}>
                     <h1>Shipping data</h1>
                     <input
+                        type="text"
                         ref={register({ required: true })}
                         placeholder="name"
                         name="name"
@@ -69,6 +70,7 @@ function Shipping() {
                     />
                     <hr />
                     <input
+                        type="text"
                         ref={register({ required: true })}
                         value={data.Surname}
                         name="Surname"
@@ -77,6 +79,7 @@ function Shipping() {
                     />
                     <hr />
                     <input
+                        type="text"
                         ref={register({ required: true })}
                         placeholder="address"
                         name="address"
@@ -85,6 +88,7 @@ function Shipping() {
                     />
                     <hr />
                     <input
+                        type="text"
                         ref={register({ required: true })}
                         placeholder="the town"
                         name="theTown"
@@ -93,6 +97,7 @@ function Shipping() {
                     />
                     <hr />
                     <input
+                        type="number"
                         ref={register({ required: true })}
                         placeholder="Postal Code"
                         name="PostalCode"
@@ -101,6 +106,7 @@ function Shipping() {
                     />
                     <hr />
                     <input
+                        type="tel"
                         ref={register({ required: true })}
                         placeholder="Phone number"
                         name="phoneNumber"
@@ -109,6 +115,7 @@ function Shipping() {
                     />
                     <hr />
                     <input
+                        type="email"
                         ref={register({ required: true })}
                         placeholder="E-mail address"
                         name="EmailAddress"

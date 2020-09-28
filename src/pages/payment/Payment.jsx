@@ -69,6 +69,7 @@ function Payment() {
                     />
                     <hr />
                     <input
+                        type="date"
                         ref={register({ required: true })}
                         placeholder="expiryDate"
                         value={data.expiryDate}
@@ -77,6 +78,7 @@ function Payment() {
                     />
                     <hr />
                     <input
+                        type="text"
                         ref={register({ required: true })}
                         placeholder="NameSurname"
                         value={data.NameSurname}

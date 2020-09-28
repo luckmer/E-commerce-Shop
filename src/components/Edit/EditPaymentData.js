@@ -31,6 +31,7 @@ function EditPaymentData(props) {
                 <h4>
                     Credit Card Number
                     <input
+                        type="number"
                         name="CreditCardNumber"
                         onChange={handleChange}
                         ref={register({ required: true })}
@@ -42,6 +43,7 @@ function EditPaymentData(props) {
                     <h5>
                         address:
                         <input
+                            type="text"
                             name="address"
                             onChange={handleChange}
                             ref={register({ required: true })}
@@ -51,6 +53,7 @@ function EditPaymentData(props) {
                     <h5>
                         The Town:
                         <input
+                            type="text"
                             name="theTown"
                             onChange={handleChange}
                             ref={register({ required: true })}
@@ -58,6 +61,7 @@ function EditPaymentData(props) {
                         <hr />
                         region:
                         <input
+                            type="text"
                             name="region"
                             onChange={handleChange}
                             ref={register({ required: true })}
@@ -65,6 +69,7 @@ function EditPaymentData(props) {
                         <hr />
                         postCode:
                         <input
+                            type="number"
                             name="postcode"
                             onChange={handleChange}
                             ref={register({ required: true })}
