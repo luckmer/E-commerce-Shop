@@ -27,6 +27,9 @@ export const FormContext = styled.div`
         margin: 0 20em 0 20em;
         display: flex;
     }
+    input {
+        width: 100%;
+    }
 `;
 
 export const ButtonPanel = styled.div`

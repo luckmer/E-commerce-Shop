@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Div, Card, Slider } from "../styles/BagStyle";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 
 export const Bag = () => {
     const { DataControl } = useContext(DataContext);

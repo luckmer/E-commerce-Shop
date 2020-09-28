@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "./colors";
+
 export const ContextContainer = styled.section`
     display: flex;
     justify-content: space-around;

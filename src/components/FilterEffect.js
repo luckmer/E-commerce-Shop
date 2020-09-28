@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 
 function FilterEffect(search, setFilteredData) {
     const { DataControl } = useContext(DataContext);

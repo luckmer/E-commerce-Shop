@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 import { Section } from "../styles/products";
 
 function ImgCarousel() {

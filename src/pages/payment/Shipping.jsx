@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { DataContext } from "../../data/Data";
+import { DataContext } from "../../utils/Data";
 import { useForm } from "react-hook-form";
 import IncorrectPage from "../404";
 import { nanoid } from "nanoid";

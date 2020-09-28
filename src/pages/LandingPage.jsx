@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 import { Link } from "react-router-dom";
 import { Container } from "../styles/LandingStyle";
 function LandingPage() {

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 import { Img, Counter } from "../Imports/index";
 import { Link, useHistory } from "react-router-dom";
 import {

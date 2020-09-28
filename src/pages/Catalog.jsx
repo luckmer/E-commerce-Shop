@@ -16,7 +16,7 @@ import {
     Hide,
     DivHide,
 } from "../styles/CatalogStyles";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 import { Link } from "react-router-dom";
 
 function Catalog() {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Shoes } from "../styles/products";
 import { Contact, ImgCarousel } from "../Imports/index";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 import { Bag } from "../components/Bag";
 import { Link } from "react-router-dom";
 

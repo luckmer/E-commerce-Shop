@@ -6,7 +6,7 @@ import {
     Row,
     Section,
 } from "../styles/CartStyles";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 import { Link } from "react-router-dom";
 function Details({ match }) {
     const [state, setState] = useState({ content: [] });

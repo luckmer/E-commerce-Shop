@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import IncorrectPage from "../404";
-import { DataContext } from "../../data/Data";
+import { DataContext } from "../../utils/Data";
 import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
 import CardData from "../../components/Payment/CartData";
@@ -15,7 +15,6 @@ const initialState = {
     id: "",
     CreditCardNumber: "",
     expiryDate: "",
-    securityCode: "",
     NameSurname: "",
     address: "",
     theTown: "",

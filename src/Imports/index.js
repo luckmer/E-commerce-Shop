@@ -4,7 +4,7 @@ export { default as Paginating } from "../components/Paginating";
 export { default as ImgCarousel } from "../components/Carousel";
 export { default as Nav } from "../components/nav";
 export { default as ScrollUp } from "../components/ScrollUp";
-export { default as Data } from "../data/Data";
+export { default as Data } from "../utils/Data";
 export { default as Counter } from "../components/Counter";
 export { default as Img } from "../images/emptyCart.png";
 export { default as FilterEffect } from "../components/FilterEffect";

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DataContext } from "../data/Data";
+import { DataContext } from "../utils/Data";
 function Counter({ _id, count }) {
     const {
         store: {

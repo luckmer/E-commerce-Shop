@@ -6,7 +6,7 @@ import {
     Box,
     Row,
 } from "../../styles/CartStyles";
-import { DataContext } from "../../data/Data";
+import { DataContext } from "../../utils/Data";
 
 function CartData() {
     const {
