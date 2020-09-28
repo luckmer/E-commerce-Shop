@@ -20,6 +20,7 @@ const initialState = {
     region: "",
     postcode: "",
 };
+
 function Payment() {
     const history = useHistory();
     const { handleSubmit, register } = useForm();

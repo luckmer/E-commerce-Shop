@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+import { DataContext } from "../utils/Data";
+import { Link } from "react-router-dom";
 import {
     Contact,
     PaginatingControl,
@@ -16,8 +18,6 @@ import {
     Hide,
     DivHide,
 } from "../styles/CatalogStyles";
-import { DataContext } from "../utils/Data";
-import { Link } from "react-router-dom";
 
 function Catalog() {
     const [page, setPage] = useState(1);

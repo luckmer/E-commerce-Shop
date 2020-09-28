@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
+import { DataContext } from "../utils/Data";
+import { Link } from "react-router-dom";
 import {
     Container,
     ContextContainer,
@@ -6,10 +8,10 @@ import {
     Row,
     Section,
 } from "../styles/CartStyles";
-import { DataContext } from "../utils/Data";
-import { Link } from "react-router-dom";
+
 function Details({ match }) {
     const [state, setState] = useState({ content: [] });
+
     const { DataControl, handleClick } = useContext(DataContext);
 
     useEffect(() => {

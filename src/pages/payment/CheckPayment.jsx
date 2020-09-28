@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../utils/Data";
-import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import {
+    Container,
+    Context,
+    CompleteButton,
+} from "../../styles/CheckPaymentStyle";
 import {
     IncorrectPage,
     ShippingData,
@@ -9,36 +13,13 @@ import {
     CartData,
 } from "../../Imports/index";
 
-const Container = styled.div`
-    padding: 15vh 10vw 0 10vw;
-    div {
-        padding: 0;
-        width: 100%;
-    }
-`;
-const Context = styled.div`
-    display: flex;
-`;
-const CompleteButton = styled.div`
-    margin: 30px 0 30px 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    button {
-        border-radius: 100px;
-        padding: 1em 10em 1em 10em;
-        background-color: #1d65c1;
-        color: #fff;
-    }
-`;
-
 function CheckPayment() {
     const history = useHistory();
     const {
         edit,
         editShoppingData,
         store: {
-            DATA: [, setTableState],
+            DATA: [setTableState],
             BUY: [payment, setPayment],
         },
     } = useContext(DataContext);
@@ -65,7 +46,7 @@ function CheckPayment() {
                     <hr />
                     <PaymentData data={paymentCont} edit={edit} />
                     <CompleteButton>
-                        <button onClick={Buy}>place an order </button>
+                        <button onClick={Buy}>place an order</button>
                     </CompleteButton>
                 </div>
                 <div>

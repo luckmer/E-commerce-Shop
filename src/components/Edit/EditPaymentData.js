@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button } from "../../styles/EditStyles";
-
+import { useForm } from "react-hook-form";
 function EditPaymentData(props) {
     const initialState = {
         id: props.id,
@@ -13,18 +13,18 @@ function EditPaymentData(props) {
     const [state, setState] = useState(initialState);
     const [start, setStart] = useState(false);
 
+    const { handleSubmit, register } = useForm();
     const handleChange = (e) =>
         setState({ ...state, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleUpload = () => {
         props.edit(props.id, state);
         setState("");
         setStart(false);
     };
 
     const editContext = (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(handleUpload)}>
             <Container>
                 <h1>PAYMENT</h1>
                 <hr />
@@ -32,8 +32,8 @@ function EditPaymentData(props) {
                     Credit Card Number
                     <input
                         name="CreditCardNumber"
-                        value={state.CreditCardNumber}
                         onChange={handleChange}
+                        ref={register({ required: true })}
                     />
                 </h4>
                 <hr />
@@ -43,36 +43,37 @@ function EditPaymentData(props) {
                         address:
                         <input
                             name="address"
-                            value={state.address}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                     </h5>
                     <hr />
                     <h5>
-                        TheTown:
+                        The Town:
                         <input
                             name="theTown"
-                            value={state.theTown}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                         <hr />
                         region:
                         <input
                             name="region"
-                            value={state.region}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                         <hr />
                         postCode:
                         <input
                             name="postcode"
-                            value={state.postcode}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                     </h5>
                 </div>
             </Container>
             <Button type="submit">Submit</Button>
+            <Button onClick={() => setStart(!start)}>Exit</Button>
         </form>
     );
 

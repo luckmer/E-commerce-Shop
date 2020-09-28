@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button } from "../../styles/EditStyles";
+import { useForm } from "react-hook-form";
 
 function PaymentContext(props) {
     const initialState = {
@@ -10,21 +11,22 @@ function PaymentContext(props) {
         phoneNumber: "",
         EmailAddress: "",
     };
+
     const [state, setState] = useState(initialState);
     const [start, setStart] = useState(false);
+    const { handleSubmit, register } = useForm();
 
     const handleChange = (e) =>
         setState({ ...state, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleUpload = () => {
         props.edit(props.id, state);
         setState("");
         setStart(false);
     };
 
     const Edit = (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(handleUpload)}>
             <Container key={props.id}>
                 <h1>SENDER</h1>
                 <h2>{props.name}</h2>
@@ -34,8 +36,8 @@ function PaymentContext(props) {
                         address
                         <input
                             name="address"
-                            value={state.address}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                     </h4>
                     <hr />
@@ -43,8 +45,8 @@ function PaymentContext(props) {
                         The Town
                         <input
                             name="theTown"
-                            value={state.theTown}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                     </h5>
                     <hr />
@@ -52,8 +54,8 @@ function PaymentContext(props) {
                         Post Code
                         <input
                             name="PostalCode"
-                            value={state.PostalCode}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                     </h5>
                     <hr />
@@ -61,8 +63,8 @@ function PaymentContext(props) {
                         phone number
                         <input
                             name="phoneNumber"
-                            value={state.phoneNumber}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                     </h5>
                     <hr />
@@ -70,14 +72,15 @@ function PaymentContext(props) {
                         email address
                         <input
                             name="EmailAddress"
-                            value={state.EmailAddress}
                             onChange={handleChange}
+                            ref={register({ required: true })}
                         />
                     </h5>
                     <hr />
                 </div>
             </Container>
             <Button type="submit">Submit</Button>
+            <Button onClick={() => setStart(!start)}>Exit</Button>
         </form>
     );
 
