@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../utils/Data";
-import IncorrectPage from "../404";
-import ShippingData from "../../components/Payment/ShippingData";
-import PaymentData from "../../components/Payment/PaymentData";
-import CartData from "../../components/Payment/CartData";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import {
+    IncorrectPage,
+    ShippingData,
+    PaymentData,
+    CartData,
+} from "../../Imports/index";
 
 const Container = styled.div`
     padding: 15vh 10vw 0 10vw;
-
     div {
         padding: 0;
         width: 100%;
@@ -18,7 +19,6 @@ const Container = styled.div`
 const Context = styled.div`
     display: flex;
 `;
-
 const CompleteButton = styled.div`
     margin: 30px 0 30px 0;
     display: flex;
@@ -36,6 +36,7 @@ function CheckPayment() {
     const history = useHistory();
     const {
         edit,
+        editShoppingData,
         store: {
             DATA: [, setTableState],
             BUY: [payment, setPayment],
@@ -60,7 +61,7 @@ function CheckPayment() {
         <Container>
             <Context>
                 <div>
-                    <ShippingData data={shipping} edit={edit} />
+                    <ShippingData data={shipping} edit={editShoppingData} />
                     <hr />
                     <PaymentData data={paymentCont} edit={edit} />
                     <CompleteButton>

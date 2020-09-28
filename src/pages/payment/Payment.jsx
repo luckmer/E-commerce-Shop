@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
-import IncorrectPage from "../404";
+import { IncorrectPage, CardData } from "../../Imports/index";
 import { DataContext } from "../../utils/Data";
-import { nanoid } from "nanoid";
-import { useForm } from "react-hook-form";
-import CardData from "../../components/Payment/CartData";
 import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { nanoid } from "nanoid";
 import {
     ContainerContext,
     FormContext,

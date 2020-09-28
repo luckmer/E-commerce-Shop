@@ -1,8 +1,7 @@
 import React from "react";
-import EditPaymentData from "../Edit/EditPaymentData";
+import { EditPaymentData } from "../../Imports/index";
 
 function PaymentData({ data, edit }) {
-    console.log(data);
     return (
         <div>
             {data.map(
