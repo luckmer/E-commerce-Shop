@@ -20,15 +20,21 @@ import {
 } from "../styles/CatalogStyles";
 
 function Catalog() {
-    const [page, setPage] = useState(1);
+    
+    const[page, setPage] = useState(1);
     const [LimitControl] = useState(9);
     const [search, setSearch] = useState({
         filterInput: "",
         filterMark: "",
         filterPrice: "",
     });
+    
     const [filteredData, setFilteredData] = useState([]);
-    const { handleClick } = useContext(DataContext);
+    
+    const { store: {
+        handleClick,
+    } } = useContext(DataContext);
+
     const { ContextView, paginate } = PaginatingControl({
         page,
         LimitControl,

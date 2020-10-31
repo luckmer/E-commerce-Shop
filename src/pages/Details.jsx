@@ -12,7 +12,10 @@ import {
 function Details({ match }) {
     const [state, setState] = useState({ content: [] });
 
-    const { DataControl, handleClick } = useContext(DataContext);
+    const { store: {
+        DataControl,
+        handleClick
+    } } = useContext(DataContext)
 
     useEffect(() => {
         const CorrectId = DataControl.fetchData.filter(

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { DataContext } from "../utils/Data";
-function Counter({ _id, count }) {
+function Counter({ _id, count }){
+
     const {
         store: {
             DATA: [TableState, setTableState],

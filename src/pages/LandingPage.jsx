@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { Container } from "../styles/LandingStyle";
 
 function LandingPage() {
-    const { DataControl } = useContext(DataContext);
+    const { store: {
+        DataControl
+    } } = useContext(DataContext)
+    
     const Mapping = DataControl.fetchData.map(({ src }) => src);
 
     return (

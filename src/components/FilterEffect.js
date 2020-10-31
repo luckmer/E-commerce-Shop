@@ -2,7 +2,10 @@ import { useEffect, useContext } from "react";
 import { DataContext } from "../utils/Data";
 
 function FilterEffect(search, setFilteredData) {
-    const { DataControl } = useContext(DataContext);
+    
+    const { store: {
+        DataControl
+    } } = useContext(DataContext)
 
     useEffect(() => {
         let filterS = DataControl.fetchData.slice();

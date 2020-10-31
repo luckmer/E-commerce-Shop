@@ -17,18 +17,19 @@ import {
 function Cart() {
     const history = useHistory();
     const {
-        Delete,
         store: {
             DATA: [TableState, setTableState],
             BUY: [payment],
+            Delete,
         },
     } = useContext(DataContext);
     const { shipping, paymentCont } = payment;
+
     const Total = TableState.table.reduce(
         (price, item) => price + item.price * item.count,
         0
     );
-    console.log(shipping.length);
+
     if (TableState.table.length <= 0) {
         return (
             <Information>

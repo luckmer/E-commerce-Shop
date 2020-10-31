@@ -6,7 +6,10 @@ import { Bag } from "../components/Bag";
 import { Link } from "react-router-dom";
 
 function Products() {
-    const { DataControl } = useContext(DataContext);
+    const { store: {
+        DataControl
+    } } = useContext(DataContext)
+    
     const Sliced = DataControl.fetchData.slice(8, 11);
     return (
         <Container>

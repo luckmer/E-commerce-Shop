@@ -3,8 +3,14 @@ import { Div, Card, Slider } from "../styles/BagStyle";
 import { DataContext } from "../utils/Data";
 
 export const Bag = () => {
-    const { DataControl } = useContext(DataContext);
+    const { store: {
+        DataControl
+    } } = useContext(DataContext)
+    
     const Img = DataControl.fetchData.map(({ src }) => src);
+
+
+
     return (
         <Slider>
             <header>New </header>

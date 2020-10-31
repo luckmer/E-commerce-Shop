@@ -6,7 +6,10 @@ import { Section } from "../styles/products";
 
 function ImgCarousel() {
     const [index, setIndex] = useState(0);
-    const { DataControl } = useContext(DataContext);
+    const { store: {
+        DataControl
+    } } = useContext(DataContext)
+    
     const Img = DataControl.fetchData.map(({ src }) => src);
 
     const handleSelect = (selectedIndex) => {

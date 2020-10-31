@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Button } from "../../styles/EditStyles";
 import { useForm } from "react-hook-form";
+
 function EditPaymentData(props) {
     const initialState = {
         id: props.id,

@@ -13,15 +13,15 @@ import {
     CartData,
 } from "../../Imports/index";
 
-function CheckPayment() {
+function CheckPayment(){
+    
     const history = useHistory();
-
     const {
-        edit,
-        editShoppingData,
         store: {
             DATA: [, setTableState],
             BUY: [payment, setPayment],
+            edit,
+            editShoppingData,
         },
     } = useContext(DataContext);
 
