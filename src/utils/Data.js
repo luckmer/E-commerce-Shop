@@ -14,11 +14,6 @@ function Data({ children }) {
         paymentCont: [],
     });
 
-    const store = {
-        DATA: [TableState, setTableState],
-        BUY: [payment, setPayment],
-    };
-
     const edit = (id, state) => {
         const { shipping, paymentCont } = payment;
         const payEdit = paymentCont.map((task) => {
@@ -77,7 +72,7 @@ function Data({ children }) {
         const Context = table.concat(DataControl.fetchData[id - 1]);
         if (TableValue) {
             setTableState({ table: [...Context] });
-        } else return;
+        }
     };
 
     useEffect(() => {
@@ -92,19 +87,22 @@ function Data({ children }) {
         localStorage.setItem("paymentData", JSON.stringify(payment));
     }, [TableState, payment]);
 
+
+    const store = {
+        DATA: [TableState, setTableState],
+        BUY: [payment, setPayment],
+        edit,
+        editShoppingData,
+        DataControl,
+        Delete,
+        handleClick,
+        TableState,
+        setTableState,
+    };
+
     return (
         <DataContext.Provider
-            value={{
-                edit,
-                editShoppingData,
-                DataControl,
-                Delete,
-                store,
-                handleClick,
-                TableState,
-                setTableState,
-            }}
-        >
+            value={{store}}>
             {children}
         </DataContext.Provider>
     );
