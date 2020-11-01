@@ -9,7 +9,7 @@ import{
     ContainerContext, FormContext, ButtonPanel
 } from "../../styles/PaymentStyle";
 import { useDispatch,useSelector } from "react-redux";
-import { setPayment } from "../../reducers/PaymentSlice";
+import { setPayment,PaymentView } from "../../reducers/PaymentSlice";
 
 const initialState = {
     id: "",
@@ -24,7 +24,7 @@ const initialState = {
 
 function Payment()
 {
-    const state = useSelector(state => state.PaymentContext.paymentCont)
+    const state = useSelector(PaymentView)
     const dispatch = useDispatch()
     const history = useHistory();
     const { handleSubmit, register } = useForm();
