@@ -64,4 +64,6 @@ export const {
     setPayment, setShipping, editPayment, editShipping, placeAnOrder 
 } = paymentSlice.actions;
 
+export const PaymentView = state => state.PaymentContext.paymentCont;
+
 export default paymentSlice.reducer;

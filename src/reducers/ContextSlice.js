@@ -39,5 +39,9 @@ const contextSlice = createSlice({
     },
 })
 
-export const { increment, decrement, buy,ClearCart } = contextSlice.actions
+export const { increment, decrement, buy, ClearCart } = contextSlice.actions
+
+export const ApiView = state => state.Context.cart;
+export const ShippingView = state => state.PaymentContext.shipping;
+export const PaymentView = state => state.PaymentContext.paymentCont;
 export default contextSlice.reducer;
