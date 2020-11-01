@@ -1,4 +1,4 @@
-import { createSlice } from "react-redux";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
     shipping: [],
@@ -14,7 +14,7 @@ const paymentSlice = createSlice({
             reducer: (state, action) => {
                 state.paymentCont.push(action.payload)
             },
-            
+
             prepare(newPayment){
                 return {payload: {newPayment}}
             }
@@ -60,5 +60,8 @@ const paymentSlice = createSlice({
     }
 })
 
-export const { setPayment, setShipping } = paymentSlice.actions;
+export const {
+    setPayment, setShipping, editPayment, editShipping, placeAnOrder 
+} = paymentSlice.actions;
+
 export default paymentSlice.reducer;
