@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Container, Shoes } from "../styles/products";
 import { Contact, ImgCarousel } from "../Imports/index";
-import { DataContext } from "../utils/Data";
 import { Bag } from "../components/Bag";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function Products() {
-    const { store: {
-        DataControl
-    } } = useContext(DataContext)
-    
-    const Sliced = DataControl.fetchData.slice(8, 11);
+function Products()
+{
+    const  state = useSelector(state => state.Context.fetchData)
+    const Sliced =state.slice(8, 11);
     return (
         <Container>
             <ImgCarousel />

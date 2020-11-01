@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
-import { DataContext } from "../utils/Data";
+import React, {  useState } from "react";
+import {  useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { buy} from "../reducers/ContextSlice";
 import {
     Contact,
     PaginatingControl,
@@ -19,22 +20,17 @@ import {
     DivHide,
 } from "../styles/CatalogStyles";
 
-function Catalog() {
-    
-    const[page, setPage] = useState(1);
+function Catalog()
+{
+    const dispatch = useDispatch();
+    const [page, setPage] = useState(1);
     const [LimitControl] = useState(9);
     const [search, setSearch] = useState({
         filterInput: "",
         filterMark: "",
         filterPrice: "",
     });
-    
     const [filteredData, setFilteredData] = useState([]);
-    
-    const { store: {
-        handleClick,
-    } } = useContext(DataContext);
-
     const { ContextView, paginate } = PaginatingControl({
         page,
         LimitControl,
@@ -48,6 +44,7 @@ function Catalog() {
 
     const correctPrice = [...new Set(price)];
     const correctMark = [...new Set(mark)];
+    
     const handleChange = (e) => {
         setSearch({ ...search, [e.target.name]: e.target.value });
     };
@@ -60,6 +57,7 @@ function Catalog() {
             correctPrice,
         });
     }
+
 
     return (
         <Container>
@@ -103,7 +101,7 @@ function Catalog() {
                                     <Link to={`${_id}`}>
                                         <button>Details</button>
                                     </Link>
-                                    <button onClick={() => handleClick(_id)}>
+                                    <button onClick={() => dispatch(buy({id:_id}))}>
                                         Buy
                                     </button>
                                 </DivHide>

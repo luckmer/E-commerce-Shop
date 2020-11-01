@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
-import { DataContext } from "../utils/Data";
+import React from "react";
 import { Img, Counter } from "../Imports/index";
 import { Link, useHistory } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import { ClearCart } from "../reducers/ContextSlice";
+
 import {
     Container,
     ShopHeader,
@@ -14,23 +16,17 @@ import {
     Information,
 } from "../styles/CartStyles";
 
-function Cart() {
+function Cart(){
+    const ApiDataView = useSelector(state => state.Context.cart)
+    const dispatch = useDispatch()
     const history = useHistory();
-    const {
-        store: {
-            DATA: [TableState, setTableState],
-            BUY: [payment],
-            Delete,
-        },
-    } = useContext(DataContext);
-    const { shipping, paymentCont } = payment;
-
-    const Total = TableState.table.reduce(
+        
+    const Total = ApiDataView.reduce(
         (price, item) => price + item.price * item.count,
         0
     );
 
-    if (TableState.table.length <= 0) {
+    if (ApiDataView.length <= 0) {
         return (
             <Information>
                 <img src={Img} alt={Img} />
@@ -43,29 +39,30 @@ function Cart() {
     }
 
     const handleClick = () => {
-        if (shipping.length <= 0) {
+        // if (shipping.length <= 0) {
             history.push("/checkout");
-        } else {
-            history.push("/payment");
-        }
+        // } else {
+        //     history.push("/payment");
+        // }
 
-        if (shipping.length >= 1) {
-            if (paymentCont.length >= 1) {
-                history.push("/check");
-            }
-        } else {
-            history.push("/checkout");
-        }
+        // if (shipping.length >= 1) {
+        //     if (paymentCont.length >= 1) {
+        //         history.push("/check");
+        //     }
+        // } else {
+        //     history.push("/checkout");
+        // }
     };
 
+    
     return (
         <Container>
             <ShopHeader>
-                <p>Items : {TableState.table.length}</p>
+                <p>Items : {ApiDataView.length}</p>
                 <p>Total : {Total}</p>
             </ShopHeader>
             <ScrollPanel>
-                {TableState.table.map(
+                {ApiDataView.map(
                     ({ src, price, count, _id, context, title }, i) => (
                         <ContextContainer key={i}>
                             <img src={src} alt={src} />
@@ -79,12 +76,10 @@ function Cart() {
                                     <Counter
                                         _id={_id}
                                         count={count}
-                                        setTableState={setTableState}
-                                        TableState={TableState}
                                     />
                                 </div>
                             </Box>
-                            <Div onClick={Delete}>X</Div>
+                            <Div onClick={()=> dispatch(ClearCart())}>X</Div>
                         </ContextContainer>
                     )
                 )}
@@ -94,7 +89,7 @@ function Cart() {
                     <button>Continue</button>
                 </Link>
 
-                <button onClick={handleClick}>Buy</button>
+                <button onClick={handleClick} >Buy</button>
             </Section>
         </Container>
     );

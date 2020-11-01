@@ -1,11 +1,11 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
-import { Data, ScrollUp, Nav } from "./Imports/index";
+import { ScrollUp, Nav } from "./Imports/index";
 import { routes } from "./routes";
 function App() {
     const location = useLocation();
     return (
-        <Data>
+        <div>
             <ScrollUp />
             <Nav />
             <Switch location={location} key={location.pathname}>
@@ -13,7 +13,7 @@ function App() {
                     <Route key={path} exact path={path} component={Component} />
                 ))}
             </Switch>
-        </Data>
+        </div>
     );
 }
 export default App;

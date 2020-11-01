@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
-import { DataContext } from "../utils/Data";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Container } from "../styles/LandingStyle";
 
 function LandingPage() {
-    const { store: {
-        DataControl
-    } } = useContext(DataContext)
-    
-    const Mapping = DataControl.fetchData.map(({ src }) => src);
+    const state = useSelector(state => state.Context.fetchData)
+    const Mapping = state.map(({src})=>src)
 
     return (
         <Container>
