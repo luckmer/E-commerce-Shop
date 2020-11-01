@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
-import { IncorrectPage, CardData } from "../../Imports/index";
-import { DataContext } from "../../utils/Data";
+import React, { useState } from "react";
+import {  CardData } from "../../Imports/index";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
@@ -9,6 +8,8 @@ import {
     FormContext,
     ButtonPanel,
 } from "../../styles/PaymentStyle";
+import { useDispatch } from "react-redux";
+import { setShipping } from "../../reducers/PaymentSlice";
 
 const initialState = {
     id: "",
@@ -21,19 +22,14 @@ const initialState = {
     EmailAddress: "",
 };
 
-function Shipping() {
+function Shipping()
+{
+
+    const dispatch = useDispatch()
     const history = useHistory();
     const { handleSubmit, register } = useForm();
 
     const [data, setData] = useState(initialState);
-    const {
-        store: {
-            DATA: [TableState],
-            BUY: [payment, setPayment],
-        },
-    } = useContext(DataContext);
-    const { table } = TableState;
-    const { shipping } = payment;
 
     const handleUpload = () => {
         const newData = {
@@ -46,14 +42,12 @@ function Shipping() {
             phoneNumber: data.phoneNumber,
             EmailAddress: data.EmailAddress,
         };
-        const test = shipping.concat(newData);
-        setPayment({ shipping: test, paymentCont: [] });
+        dispatch(setShipping(newData));
         history.push("/payment");
     };
     const handleChange = (e) =>
         setData({ ...data, [e.target.name]: e.target.value });
 
-    if (table.length <= 0 || shipping.length > 0) return <IncorrectPage />;
 
     return (
         <ContainerContext>

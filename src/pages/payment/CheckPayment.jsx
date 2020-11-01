@@ -1,41 +1,23 @@
-import React, { useContext } from "react";
-import { DataContext } from "../../utils/Data";
+import React  from "react";
 import { useHistory } from "react-router-dom";
-import {
-    Container,
-    Context,
-    CompleteButton,
+import{
+    Container, Context, CompleteButton
 } from "../../styles/CheckPaymentStyle";
-import {
-    IncorrectPage,
-    ShippingData,
-    PaymentData,
-    CartData,
+import{
+    IncorrectPage, ShippingData, PaymentData, CartData
 } from "../../Imports/index";
+import { useDispatch } from "react-redux";
+import { placeAnOrder } from "../../reducers/PaymentSlice";
+import { ClearCart } from "../../reducers/ContextSlice";
 
 function CheckPayment(){
-    
+    const dispatch = useDispatch()
     const history = useHistory();
-    const {
-        store: {
-            DATA: [, setTableState],
-            BUY: [payment, setPayment],
-            edit,
-            editShoppingData,
-        },
-    } = useContext(DataContext);
 
-    const { shipping, paymentCont } = payment;
-
-    if (shipping.length === 0 || paymentCont.length === 0)
-        return <IncorrectPage />;
-
-    const Buy = () => {
-        setTableState({ table: [] });
-        setPayment({
-            shipping: [],
-            paymentCont: [],
-        });
+    const Buy = () =>{
+        
+        dispatch(placeAnOrder());
+        dispatch(ClearCart());
         history.push("/");
     };
 
@@ -43,9 +25,9 @@ function CheckPayment(){
         <Container>
             <Context>
                 <div>
-                    <ShippingData data={shipping} edit={editShoppingData} />
+                    <ShippingData />
                     <hr />
-                    <PaymentData data={paymentCont} edit={edit} />
+                    <PaymentData  />
                     <CompleteButton>
                         <button onClick={Buy}>place an order</button>
                     </CompleteButton>

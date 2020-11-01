@@ -1,14 +1,15 @@
-import React, { useContext, useState } from "react";
-import { IncorrectPage, CardData } from "../../Imports/index";
-import { DataContext } from "../../utils/Data";
+import React, { useState } from "react";
+import{
+    IncorrectPage, CardData
+} from "../../Imports/index";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
-import {
-    ContainerContext,
-    FormContext,
-    ButtonPanel,
+import{
+    ContainerContext, FormContext, ButtonPanel
 } from "../../styles/PaymentStyle";
+import { useDispatch,useSelector } from "react-redux";
+import { setPayment } from "../../reducers/PaymentSlice";
 
 const initialState = {
     id: "",
@@ -21,17 +22,15 @@ const initialState = {
     postcode: "",
 };
 
-function Payment() {
+function Payment()
+{
+    const state = useSelector(state => state.PaymentContext)
+    console.log(state)
+    const dispatch = useDispatch()
     const history = useHistory();
     const { handleSubmit, register } = useForm();
-    const {
-        store: {
-            BUY: [payment, setPayment],
-        },
-    } = useContext(DataContext);
 
     const [data, setData] = useState(initialState);
-    const { shipping, paymentCont } = payment;
 
     const handleUpload = () => {
         const newPayment = {
@@ -44,16 +43,12 @@ function Payment() {
             region: data.region,
             postcode: data.postcode,
         };
-        const next = paymentCont.concat(newPayment);
-        setPayment({ paymentCont: next, shipping });
+        dispatch(setPayment(newPayment));
         history.push("/check");
     };
 
     const handleChange = (e) =>
         setData({ ...data, [e.target.name]: e.target.value });
-
-    if (shipping.length <= 0 || paymentCont.length > 0)
-        return <IncorrectPage />;
 
     return (
         <ContainerContext>
