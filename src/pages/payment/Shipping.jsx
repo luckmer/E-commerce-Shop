@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  CardData } from "../../Imports/index";
+import {  CardData, IncorrectPage } from "../../Imports/index";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
@@ -8,7 +8,7 @@ import {
     FormContext,
     ButtonPanel,
 } from "../../styles/PaymentStyle";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { setShipping } from "../../reducers/PaymentSlice";
 
 const initialState = {
@@ -26,9 +26,10 @@ function Shipping()
 {
 
     const dispatch = useDispatch()
+    const CartLength = useSelector((state) => state.PaymentContext.shipping);
+    
     const history = useHistory();
     const { handleSubmit, register } = useForm();
-
     const [data, setData] = useState(initialState);
 
     const handleUpload = () => {
@@ -49,8 +50,8 @@ function Shipping()
         setData({ ...data, [e.target.name]: e.target.value });
 
 
-    return (
-        <ContainerContext>
+        return CartLength.length >= 1 ? <IncorrectPage /> : (
+            <ContainerContext>
             <FormContext>
                 <form onSubmit={handleSubmit(handleUpload)}>
                     <h1>Shipping data</h1>
@@ -126,7 +127,7 @@ function Shipping()
                 </div>
             </FormContext>
         </ContainerContext>
-    );
+    )
 }
 
 export default Shipping;
