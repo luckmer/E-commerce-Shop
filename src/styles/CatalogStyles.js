@@ -58,7 +58,6 @@ export const SearchControl = styled.div`
         input,
         selecT {
             padding: 10px 10px 10px 10px;
-
             border-radius: 5px;
             width: 100%;
         }
@@ -103,7 +102,7 @@ export const Context = styled.div`
     justify-content: space-around;
     flex-flow: row wrap;
 `;
-export const Div = styled.div`
+export const Div = styled.section`
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;

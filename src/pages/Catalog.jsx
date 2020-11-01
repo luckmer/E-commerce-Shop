@@ -58,7 +58,6 @@ function Catalog()
         });
     }
 
-
     return (
         <Container>
             <SearchControl page={page}>
