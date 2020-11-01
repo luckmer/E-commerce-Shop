@@ -6,12 +6,14 @@ import{
 import{
     IncorrectPage, ShippingData, PaymentData, CartData
 } from "../../Imports/index";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { placeAnOrder } from "../../reducers/PaymentSlice";
 import { ClearCart } from "../../reducers/ContextSlice";
 
 function CheckPayment(){
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const CartLength = useSelector((state) => state.PaymentContext.paymentCont);
+    console.log(CartLength);
     const history = useHistory();
 
     const Buy = () =>{
@@ -21,8 +23,8 @@ function CheckPayment(){
         history.push("/");
     };
 
-    return (
-        <Container>
+    return CartLength.length <= 0 ? <IncorrectPage /> : (
+            <Container>
             <Context>
                 <div>
                     <ShippingData />
@@ -37,7 +39,7 @@ function CheckPayment(){
                 </div>
             </Context>
         </Container>
-    );
+    )
 }
 
 export default CheckPayment;
