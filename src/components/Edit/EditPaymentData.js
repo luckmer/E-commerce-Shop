@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Container, Button } from "../../styles/EditStyles";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { editPayment } from "../../reducers/PaymentSlice";
 
-function EditPaymentData(props) {
+function EditPaymentData(props){
+    
+    const dispatch = useDispatch();
     const initialState = {
         id: props.id,
         CreditCardNumber: "",
@@ -11,6 +15,7 @@ function EditPaymentData(props) {
         region: "",
         postcode: "",
     };
+    
     const [state, setState] = useState(initialState);
     const [start, setStart] = useState(false);
 
@@ -19,8 +24,8 @@ function EditPaymentData(props) {
         setState({ ...state, [e.target.name]: e.target.value });
 
     const handleUpload = () => {
-        props.edit(props.id, state);
-        setState("");
+        const newContext = state
+        dispatch(editPayment({id : props.id ,newContext }))
         setStart(false);
     };
 

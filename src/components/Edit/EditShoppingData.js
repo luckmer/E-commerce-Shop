@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Container, Button } from "../../styles/EditStyles";
 import { useForm } from "react-hook-form";
-
+import { useDispatch } from "react-redux";
+import { editShipping } from "../../reducers/PaymentSlice";
 function PaymentContext(props) {
-    const initialState = {
-        id: props.id,
-        address: "",
-        theTown: "",
-        PostalCode: "",
-        phoneNumber: "",
-        EmailAddress: "",
-    };
 
+    const dispatch = useDispatch();
+    
+    const initialState = {
+            id: props.id,
+            address:"",
+            theTown: "",
+            PostalCode: "",
+            phoneNumber: "",
+            EmailAddress:"",
+        };
+    
     const [state, setState] = useState(initialState);
     const [start, setStart] = useState(false);
     const { handleSubmit, register } = useForm();
@@ -19,9 +23,9 @@ function PaymentContext(props) {
     const handleChange = (e) =>
         setState({ ...state, [e.target.name]: e.target.value });
 
-    const handleUpload = () => {
-        props.edit(props.id, state);
-        setState("");
+    const handleUpload = () =>{
+        const newContext = state
+        dispatch(editShipping({id : props.id ,newContext }))
         setStart(false);
     };
 
