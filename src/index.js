@@ -11,8 +11,8 @@ import { Provider } from "react-redux";
 ReactDOM.render(
     <Router>
         <Provider store ={Store}>
-            <GlobalStyle />
             <App />
+            <GlobalStyle />
         </Provider>
     </Router>,
     document.getElementById("root")
