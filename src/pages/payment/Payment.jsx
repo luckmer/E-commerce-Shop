@@ -24,8 +24,7 @@ const initialState = {
 
 function Payment()
 {
-    const state = useSelector(state => state.PaymentContext)
-    console.log(state)
+    const state = useSelector(state => state.PaymentContext.paymentCont)
     const dispatch = useDispatch()
     const history = useHistory();
     const { handleSubmit, register } = useForm();
@@ -50,8 +49,9 @@ function Payment()
     const handleChange = (e) =>
         setData({ ...data, [e.target.name]: e.target.value });
 
-    return (
-        <ContainerContext>
+    
+        return state.length >= 1 ? <IncorrectPage /> : (
+            <ContainerContext>
             <FormContext>
                 <form onSubmit={handleSubmit(handleUpload)}>
                     <h1>Payment</h1>
@@ -122,7 +122,7 @@ function Payment()
                 </div>
             </FormContext>
         </ContainerContext>
-    );
+    )
 }
 
 export default Payment;
