@@ -19,6 +19,9 @@ import {
 function Cart(){
     const ApiDataView = useSelector(state => state.Context.cart)
     const dispatch = useDispatch()
+    const shipping = useSelector((state) => state.PaymentContext.shipping);
+    const paymentCont = useSelector((state) => state.PaymentContext.paymentCont);
+
     const history = useHistory();
         
     const Total = ApiDataView.reduce(
@@ -38,20 +41,22 @@ function Cart(){
         );
     }
 
-    const handleClick = () => {
-        // if (shipping.length <= 0) {
-            history.push("/checkout");
-        // } else {
-        //     history.push("/payment");
-        // }
+    const handleClick = () =>{
+        
 
-        // if (shipping.length >= 1) {
-        //     if (paymentCont.length >= 1) {
-        //         history.push("/check");
-        //     }
-        // } else {
-        //     history.push("/checkout");
-        // }
+        if (shipping.length <= 0) {
+            history.push("/checkout");
+        } else {
+            history.push("/payment");
+        }
+
+        if (shipping.length >= 1) {
+            if (paymentCont.length >= 1) {
+                history.push("/check");
+            }
+        } else {
+            history.push("/checkout");
+        }
     };
 
     
