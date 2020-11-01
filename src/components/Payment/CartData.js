@@ -1,23 +1,14 @@
-import React, { useContext } from "react";
-import {
-    Container,
-    ScrollPanel,
-    ContextContainer,
-    Box,
-    Row,
-} from "../../styles/CartStyles";
-import { DataContext } from "../../utils/Data";
+import React from "react";
+import{Container, ScrollPanel, ContextContainer, Box, Row} from "../../styles/CartStyles";
+import { useSelector } from "react-redux";
 
 function CartData() {
-    const {
-        store: {
-            DATA: [TableState],
-        },
-    } = useContext(DataContext);
+    const state = useSelector(state => state.Context.cart)
+
     return (
         <Container>
             <ScrollPanel>
-                {TableState.table.map(({ src, context, title }, i) => (
+                {state.map(({ src, context, title }, i) => (
                     <ContextContainer key={i}>
                         <img src={src} alt={src} />
                         <Box>

@@ -1,10 +1,16 @@
 import React from "react";
 import { EditShoppingData } from "../../Imports/index";
+import { useSelector } from "react-redux";
 
-function ShippingData({ data, edit }) {
+
+function ShippingData(){
+    
+    const state = useSelector((state) => state.PaymentContext.shipping);
+    const Mapping = state.map(({ newData }) => newData); 
+
     return (
         <div>
-            {data.map(
+            {Mapping.map(
                 ({
                     name,
                     id,
@@ -15,7 +21,6 @@ function ShippingData({ data, edit }) {
                     EmailAddress,
                 }) => (
                     <EditShoppingData
-                        edit={edit}
                         key={id}
                         name={name}
                         id={id}

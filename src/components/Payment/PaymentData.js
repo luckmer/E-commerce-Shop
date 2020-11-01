@@ -1,10 +1,15 @@
 import React from "react";
 import { EditPaymentData } from "../../Imports/index";
+import { useSelector } from "react-redux";
 
-function PaymentData({ data, edit }) {
+function PaymentData(){
+    
+
+    const state = useSelector((state) => state.PaymentContext.paymentCont);
+    const Mapping = state.map(({ newPayment }) => newPayment);
     return (
         <div>
-            {data.map(
+            {Mapping.map(
                 ({
                     id,
                     CreditCardNumber,
@@ -17,7 +22,6 @@ function PaymentData({ data, edit }) {
                 }) => (
                     <EditPaymentData
                         key={id}
-                        edit={edit}
                         CreditCardNumber={CreditCardNumber}
                         address={address}
                         theTown={theTown}
