@@ -1,43 +1,57 @@
-import { useEffect, useContext } from "react";
-import { DataContext } from "../utils/Data";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function FilterEffect(search, setFilteredData) {
-    
-    const { store: {
-        DataControl
-    } } = useContext(DataContext)
 
-    useEffect(() => {
-        let filterS = DataControl.fetchData.slice();
+    const state = useSelector(state => state.Context.fetchData)
+    
+    useEffect(() =>{
+        let filterS = state.slice();
 
         if (search.filterInput) {
             filterS = filterS.filter((item) =>
                 item.name
                     .toLowerCase()
-                    .includes(search.filterInput.toLowerCase())
+                    .includes(
+                        search.filterInput
+                            .toLowerCase()
+                            .trim()
+                    ),
             );
         }
+
         if (search.filterMark) {
             filterS = filterS.filter((item) =>
                 item.type
                     .toLowerCase()
-                    .includes(search.filterMark.toLowerCase())
+                    .includes(
+                        search.filterMark
+                            .toLowerCase()
+                            .trim()
+                    )
             );
         }
+        
         if (search.filterPrice) {
             filterS = filterS.filter((item) =>
-                item.price.toString().includes(search.filterPrice.toString())
+                item.price
+                    .toString()
+                    .includes(
+                        search.filterPrice
+                            .toString()
+                            .trim()
+                    )
             );
         }
 
         setFilteredData(filterS);
     }, [
         search.filterInput,
-        DataControl.fetchData,
         search.filterMark,
         search.filterPrice,
         setFilteredData,
         search,
+        state,
     ]);
 }
 export default FilterEffect;

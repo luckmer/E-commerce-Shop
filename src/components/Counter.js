@@ -1,35 +1,19 @@
-import React, { useContext } from "react";
-import { DataContext } from "../utils/Data";
+import React from "react";
+import {  useDispatch } from "react-redux";
+import { decrement, increment } from "../reducers/ContextSlice";
+
 function Counter({ _id, count }){
 
-    const {
-        store: {
-            DATA: [TableState, setTableState],
-        },
-    } = useContext(DataContext);
+    const dispatch = useDispatch();
 
-    const decrement = (id) => {
-        const { table } = TableState;
-        table.forEach((item) => {
-            if (item._id === id) item.count -= 1;
-            if (item.count < 1) item.count = 1;
-            setTableState({ table: table });
-        });
-    };
-
-    const increment = (id) => {
-        const { table } = TableState;
-        table.forEach((item) => {
-            if (item._id === id) item.count += 1;
-            setTableState({ table: table });
-        });
-    };
+    const Increment = () => dispatch(increment({ id: _id }));
+    const Decrement = () => dispatch(decrement({ id: _id }));
 
     return (
         <>
-            <button onClick={() => decrement(_id)}>-</button>
+            <button onClick={() => Decrement(_id)}>-</button>
             <span>{count}</span>
-            <button onClick={() => increment(_id)}>+</button>
+            <button onClick={() => Increment(_id)}>+</button>
         </>
     );
 }

@@ -1,20 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState} from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { DataContext } from "../utils/Data";
+import { useSelector } from "react-redux";
 import { Section } from "../styles/products";
 
-function ImgCarousel() {
-    const [index, setIndex] = useState(0);
-    const { store: {
-        DataControl
-    } } = useContext(DataContext)
+function ImgCarousel(){
     
-    const Img = DataControl.fetchData.map(({ src }) => src);
+    const [index, setIndex] = useState(0);
+    const state = useSelector(state => state.Context.fetchData)
+    const Img = state.map(({src})=>src)
 
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
     };
+
     return (
         <Section>
             <Carousel activeIndex={index} onSelect={handleSelect}>

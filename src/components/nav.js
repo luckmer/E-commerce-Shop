@@ -1,20 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { NavBar, Header, Menu, DivPage } from "../styles/NavBar";
 import { Link } from "react-router-dom";
-import { DataContext } from "../utils/Data";
-
+import { useSelector } from "react-redux";
 function Nav() {
+    
     const [state, setState] = useState(false);
     const [scroll, setScroll] = useState(false);
-    const {
-        store: {
-            DATA: [TableState],
-        },
-    } = useContext(DataContext);
 
-    useEffect(() => {
+    const NumberDate = useSelector(state => state.Context.cart)
+
+    useEffect(() =>{
         window.addEventListener("scroll", () => {
-            window.pageYOffset > 70 ? setScroll(true) : setScroll(false);
+        window.pageYOffset > 70 ? setScroll(true) : setScroll(false);
         });
     }, []);
 
@@ -47,7 +44,7 @@ function Nav() {
                     <ul onClick={() => setState(!state)}>
                         <Link to="/cart">
                             <li>
-                                Cart <span> {TableState.table.length}</span>
+                                Cart <span> {NumberDate.length} </span>
                             </li>
                         </Link>
                     </ul>

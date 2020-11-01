@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Div, Card, Slider } from "../styles/BagStyle";
-import { DataContext } from "../utils/Data";
+import { useSelector } from "react-redux";
 
 export const Bag = () => {
-    const { store: {
-        DataControl
-    } } = useContext(DataContext)
-    
-    const Img = DataControl.fetchData.map(({ src }) => src);
 
+    const DataControl = useSelector(state => state.Context.fetchData)
+    const Img = DataControl.map(({ src }) => src);
 
 
     return (
