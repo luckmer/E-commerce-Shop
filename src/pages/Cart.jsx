@@ -2,8 +2,7 @@ import React from "react";
 import { Img, Counter } from "../Imports/index";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
-import { ClearCart } from "../reducers/ContextSlice";
-
+import { ClearCart, ApiView,ShippingView,PaymentView} from "../reducers/ContextSlice";
 import {
     Container,
     ShopHeader,
@@ -16,11 +15,12 @@ import {
     Information,
 } from "../styles/CartStyles";
 
-function Cart(){
-    const ApiDataView = useSelector(state => state.Context.cart)
-    const dispatch = useDispatch()
-    const shipping = useSelector((state) => state.PaymentContext.shipping);
-    const paymentCont = useSelector((state) => state.PaymentContext.paymentCont);
+function Cart()
+{
+    const dispatch = useDispatch();
+    const ApiDataView = useSelector(ApiView)    
+    const shipping = useSelector(ShippingView);
+    const paymentCont = useSelector(PaymentView);
 
     const history = useHistory();
         
