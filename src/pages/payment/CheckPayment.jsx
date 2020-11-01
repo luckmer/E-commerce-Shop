@@ -8,12 +8,12 @@ import{
 } from "../../Imports/index";
 import { useDispatch,useSelector } from "react-redux";
 import { placeAnOrder } from "../../reducers/PaymentSlice";
-import { ClearCart } from "../../reducers/ContextSlice";
+import { ClearCart,PaymentView } from "../../reducers/ContextSlice";
 
 function CheckPayment(){
     const dispatch = useDispatch();
-    const CartLength = useSelector((state) => state.PaymentContext.paymentCont);
-    console.log(CartLength);
+    const CartLength = useSelector(PaymentView);
+    
     const history = useHistory();
 
     const Buy = () =>{
